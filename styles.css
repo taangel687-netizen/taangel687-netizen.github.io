@@ -1,85 +1,122 @@
-/* Variables Globales y Reset Básico */
+/* ==========================================================================
+   Variables Globales - Dark Tech Theme Pro
+   ========================================================================== */
 :root {
-  --bg: #fafafa;
-  --card-bg: #ffffff;
-  --text: #1a1a1a;
-  --subtext: #666666;
-  --border: #e5e5e5;
-  --primary: #2563eb;
-  --primary-light: #eff6ff;
-  --primary-hover: #1d4ed8;
-  --tag-bg: #e0e7ff;
-  --tag-text: #3730a3;
+  --bg: #090d16; /* Fondo principal ultra oscuro */
+  --card-bg: #111726; /* Fondo de tarjetas */
+  --card-bg-hover: #161f33; /* Fondo de tarjetas al pasar el cursor */
+  --text: #f1f5f9; /* Texto principal blanco suave */
+  --subtext: #94a3b8; /* Texto secundario gris */
+  --border: #1e293b; /* Borde sutil */
+  --border-glow: #334155; /* Borde destacado */
+
+  --primary: #38bdf8; /* Azul Cyan Neón */
+  --primary-light: rgba(56, 189, 248, 0.1);
+  --primary-hover: #0284c7;
+  --accent-glow: rgba(56, 189, 248, 0.25);
+
+  --tag-bg: rgba(99, 102, 241, 0.15);
+  --tag-text: #818cf8;
 }
 
+/* ==========================================================================
+   Reset Básico y Estilos Globales
+   ========================================================================== */
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  max-width: 850px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2.5rem 1rem;
+  padding: 3rem 1.5rem;
   line-height: 1.6;
 }
 
-/* Secciones / Tarjetas del Portafolio */
+/* Secciones principales */
 section {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.75rem;
-  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease;
+}
+
+section:hover {
+  border-color: var(--border-glow);
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 0.5rem;
-  color: var(--text);
+  padding-bottom: 0.75rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
-/* 1. Perfil / Info Personal */
+/* ==========================================================================
+   1. Perfil / Header (Foto Prominente)
+   ========================================================================== */
 .profile-header {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  gap: 2.5rem;
+  align-items: flex-start; /* Alineación superior para dar soporte a la foto grande */
 }
 
 .profile-img {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
+  width: 190px; /* Tamaño ampliado e imponente */
+  height: 190px;
+  border-radius: 24px; /* Squircle moderno */
   object-fit: cover;
-  border: 1px solid var(--border);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 30px var(--accent-glow);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  flex-shrink: 0; /* Evita que se deforme en pantallas medianas */
+}
+
+.profile-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.45);
 }
 
 .profile-info h1 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
 .profile-subtitle {
-  margin: 0.2rem 0;
-  color: var(--subtext);
-  font-weight: 500;
+  margin: 0.3rem 0 0.8rem 0;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .profile-bio {
   font-size: 0.95rem;
-  margin: 0.6rem 0;
-  color: var(--text);
+  margin: 0.6rem 0 1.2rem 0;
+  color: var(--subtext);
 }
 
 .links-list {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1rem;
   flex-wrap: wrap;
 }
 
@@ -88,22 +125,36 @@ h2 {
   text-decoration: none;
   color: var(--primary);
   background: var(--primary-light);
-  padding: 0.4rem 0.85rem;
-  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .btn-link:hover {
   background: var(--primary);
-  color: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 15px var(--accent-glow);
+  border-color: var(--primary);
 }
 
-/* 2. Estudios */
+/* ==========================================================================
+   2. Sección de Estudios
+   ========================================================================== */
+.education-item {
+  margin-bottom: 1.2rem;
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
 .education-item h3 {
   margin: 0;
   font-size: 1.05rem;
+  color: #ffffff;
 }
 
 .education-item p {
@@ -112,16 +163,18 @@ h2 {
   font-size: 0.9rem;
 }
 
-/* 3. Proyectos Clickeables */
+/* ==========================================================================
+   3. Sección de Proyectos
+   ========================================================================== */
 .project-card {
   display: block;
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.2rem;
+  border-radius: 12px;
+  padding: 1.25rem;
   text-decoration: none;
   color: inherit;
-  background: #fcfcfc;
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.25s ease;
   margin-bottom: 1rem;
 }
 
@@ -131,14 +184,19 @@ h2 {
 
 .project-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  background: #ffffff;
+  transform: translateY(-3px);
+  background: var(--card-bg-hover);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .project-card h3 {
   margin: 0 0 0.4rem 0;
   font-size: 1.1rem;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.project-card:hover h3 {
   color: var(--primary);
 }
 
@@ -153,13 +211,16 @@ h2 {
   font-size: 0.75rem;
   background: var(--tag-bg);
   color: var(--tag-text);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-  margin-top: 0.75rem;
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  margin-top: 0.85rem;
   font-weight: 600;
 }
 
-/* 4. Grilla de Clases (14 Semanas) */
+/* ==========================================================================
+   4. Grilla de Clases del Semestre
+   ========================================================================== */
 .classes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -170,19 +231,19 @@ h2 {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
-  padding: 1rem;
-  border-radius: 6px;
+  padding: 1.1rem;
+  border-radius: 10px;
   text-decoration: none;
   color: inherit;
-  background: #fcfcfc;
+  background: rgba(255, 255, 255, 0.02);
   transition: all 0.2s ease;
 }
 
 .class-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  background: #ffffff;
+  transform: translateY(-3px);
+  background: var(--card-bg-hover);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .class-card .week-tag {
@@ -195,22 +256,31 @@ h2 {
 
 .class-card h3 {
   font-size: 0.95rem;
-  margin: 0.3rem 0;
-  color: var(--text);
+  margin: 0.4rem 0;
+  color: #ffffff;
 }
 
 .class-card p {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--subtext);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* ==========================================================================
+   Diseño Responsivo (Móviles)
+   ========================================================================== */
+@media (max-width: 650px) {
   .profile-header {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+
   .links-list {
     justify-content: center;
   }

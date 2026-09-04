@@ -1,86 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semana 01 - Fundamentos Web y VSC</title>
-  <!-- Vinculamos al CSS de la carpeta raíz -->
-  <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana 01 - Fundamentos Web y VSC</title>
+    <!-- Vinculamos al CSS de la carpeta raíz -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <!-- Botón para regresar al portafolio principal -->
+    <p><a href="../index.html" class="btn-link">← Volver al Portafolio</a></p>
 
-  <!-- Botón para regresar al portafolio principal -->
-  <p><a href="../index.html" class="btn-link">← Volver al Portafolio</a></p>
+    <!-- Encabezado de la Clase -->
+    <section>
+      <span class="week-tag">Cuaderno de Campo</span>
+      <h1 style="margin-top: 0.2rem">
+        Semana 01: Fundamentos Web y Configuración del Entorno
+      </h1>
+      <p style="color: var(--subtext); margin: 0">
+        Curso: Desarrollo de Aplicaciones Web — UNCP
+      </p>
+    </section>
 
-  <!-- Encabezado de la Clase -->
-  <section>
-    <span class="week-tag">Cuaderno de Campo</span>
-    <h1 style="margin-top: 0.2rem;">Semana 01: Fundamentos Web y Configuración del Entorno</h1>
-    <p style="color: var(--subtext); margin: 0;">Curso: Desarrollo de Aplicaciones Web — UNCP</p>
-  </section>
+    <!-- 1. TEMAS APRENDIDOS -->
+    <section>
+      <h2>1. Temas Aprendidos (Definiciones y Procedimiento)</h2>
 
-  <!-- 1. TEMAS APRENDIDOS -->
-  <section>
-    <h2>1. Temas Aprendidos (Definiciones y Procedimiento)</h2>
-    
-    <h3>¿Cómo funciona la Web y el protocolo HTTP?</h3>
-    <p>
-      La Web opera mediante un modelo **Cliente-Servidor**. Cuando ingresamos una URL en el navegador:
-    </p>
-    <ul>
-      <li>El <strong>DNS</strong> traduce el nombre de dominio (ej. <em>google.com</em>) a una dirección IP numérica.</li>
-      <li>Se establece una conexión mediante <strong>TCP/IP</strong> dividiendo los datos en paquetes.</li>
-      <li>El cliente realiza una petición <strong>HTTP/HTTPS</strong> (GET, POST) y el servidor responde con un código de estado (200 OK, 404 Not Found) junto con los archivos solicitados.</li>
-    </ul>
+      <h3>¿Cómo funciona la Web y el protocolo HTTP?</h3>
+      <p>
+        La Web opera mediante un modelo **Cliente-Servidor**. Cuando ingresamos
+        una URL en el navegador:
+      </p>
+      <ul>
+        <li>
+          El <strong>DNS</strong> traduce el nombre de dominio (ej.
+          <em>google.com</em>) a una dirección IP numérica.
+        </li>
+        <li>
+          Se establece una conexión mediante <strong>TCP/IP</strong> dividiendo
+          los datos en paquetes.
+        </li>
+        <li>
+          El cliente realiza una petición <strong>HTTP/HTTPS</strong> (GET,
+          POST) y el servidor responde con un código de estado (200 OK, 404 Not
+          Found) junto con los archivos solicitados.
+        </li>
+      </ul>
 
-    <h3>Diferencias en Soluciones Web</h3>
-    <ul>
-      <li><strong>Página Web:</strong> Documento estático accesible mediante una URL (ej. <code>about.html</code>).</li>
-      <li><strong>Sitio Web:</strong> Colección de páginas web bajo un mismo dominio.</li>
-      <li><strong>Aplicación Web:</strong> Software interactivo en un servidor que maneja lógica de negocio, estado y bases de datos.</li>
-      <li><strong>Sistema Web:</strong> Conjunto integrado de aplicaciones y servicios complejos.</li>
-    </ul>
+      <h3>Diferencias en Soluciones Web</h3>
+      <ul>
+        <li>
+          <strong>Página Web:</strong> Documento estático accesible mediante una
+          URL (ej. <code>about.html</code>).
+        </li>
+        <li>
+          <strong>Sitio Web:</strong> Colección de páginas web bajo un mismo
+          dominio.
+        </li>
+        <li>
+          <strong>Aplicación Web:</strong> Software interactivo en un servidor
+          que maneja lógica de negocio, estado y bases de datos.
+        </li>
+        <li>
+          <strong>Sistema Web:</strong> Conjunto integrado de aplicaciones y
+          servicios complejos.
+        </li>
+      </ul>
 
-    <h3>Estándares y Roles (Open Web Platform)</h3>
-    <p>
-      Comprendí la diferencia entre las capas de desarrollo: <strong>Frontend</strong> (lo que ve el usuario con HTML, CSS, JS) y <strong>Backend</strong> (procesamiento en servidor y base de datos), regidos por estándares de la W3C.
-    </p>
-  </section>
+      <h3>Estándares y Roles (Open Web Platform)</h3>
+      <p>
+        Comprendí la diferencia entre las capas de desarrollo:
+        <strong>Frontend</strong> (lo que ve el usuario con HTML, CSS, JS) y
+        <strong>Backend</strong> (procesamiento en servidor y base de datos),
+        regidos por estándares de la W3C.
+      </p>
+    </section>
 
-  <!-- 2. EJERCICIOS DE LABORATORIO - RESULTADOS -->
-  <section>
-    <h2>2. Ejercicios de Laboratorio (Resultados)</h2>
-    <p>Durante la sesión práctica se realizaron los siguientes procedimientos en Visual Studio Code:</p>
-    
-    <ul>
-      <li><strong>Configuración del Entorno:</strong> Instalación de VSC y extensiones esenciales (Live Server, Prettier, Material Icon Theme).</li>
-      <li><strong>Atajos de Teclado Practicados:</strong>
-        <ul>
-          <li><code>Ctrl + P</code> para navegación rápida de archivos.</li>
-          <li><code>Ctrl + Shift + P</code> para la Paleta de Comandos.</li>
-          <li><code>Ctrl + ~</code> para alternar la terminal integrada.</li>
-          <li><code>! + Tab</code> mediante Emmet para generar el boilerplate de HTML5.</li>
-        </ul>
-      </li>
-      <li><strong>Primer Archivo HTML:</strong> Creación de la estructura base y previsualización en tiempo real mediante Live Server.</li>
-      <li><strong>Control de Versiones:</strong> Inicialización de repositorio local Git y publicación del código en GitHub.</li>
-    </ul>
-  </section>
+    <!-- 2. EJERCICIOS DE LABORATORIO - RESULTADOS -->
+    <section>
+      <h2>2. Ejercicios de Laboratorio (Resultados)</h2>
+      <p>
+        Durante la sesión práctica se realizaron los siguientes procedimientos
+        en Visual Studio Code:
+      </p>
 
-  <!-- 3. REFLEXIÓN METACOGNITIVA -->
-  <section>
-    <h2>3. Reflexión Metacognitiva</h2>
-    
-    <h3>¿Qué aprendí?</h3>
-    <p>
-      Aprendí a diferenciar conceptualmente las arquitecturas web y a configurar un entorno de desarrollo profesional con Visual Studio Code, aplicando buenas prácticas de formateo automático y control de versiones con Git.
-    </p>
+      <ul>
+        <li>
+          <strong>Configuración del Entorno:</strong> Instalación de VSC y
+          extensiones esenciales (Live Server, Prettier, Material Icon Theme).
+        </li>
+        <li>
+          <strong>Atajos de Teclado Practicados:</strong>
+          <ul>
+            <li><code>Ctrl + P</code> para navegación rápida de archivos.</li>
+            <li><code>Ctrl + Shift + P</code> para la Paleta de Comandos.</li>
+            <li><code>Ctrl + ~</code> para alternar la terminal integrada.</li>
+            <li>
+              <code>! + Tab</code> mediante Emmet para generar el boilerplate de
+              HTML5.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Primer Archivo HTML:</strong> Creación de la estructura base y
+          previsualización en tiempo real mediante Live Server.
+        </li>
+        <li>
+          <strong>Control de Versiones:</strong> Inicialización de repositorio
+          local Git y publicación del código en GitHub.
+        </li>
+      </ul>
+    </section>
 
-    <h3>¿Cómo lo aprendí?</h3>
-    <p>
-      A través de la exposición teórica docente y la aplicación práctica guiada en laboratorio, ejecutando los comandos directamente en la terminal integrada y experimentando con el flujo de trabajo en tiempo real con Live Server.
-    </p>
-  </section>
+    <!-- 3. REFLEXIÓN METACOGNITIVA -->
+    <section>
+      <h2>3. Reflexión Metacognitiva</h2>
 
-</body>
+      <h3>¿Qué aprendí?</h3>
+      <p>
+        Aprendí a diferenciar conceptualmente las arquitecturas web y a
+        configurar un entorno de desarrollo profesional con Visual Studio Code,
+        aplicando buenas prácticas de formateo automático y control de versiones
+        con Git.
+      </p>
+
+      <h3>¿Cómo lo aprendí?</h3>
+      <p>
+        A través de la exposición teórica docente y la aplicación práctica
+        guiada en laboratorio, ejecutando los comandos directamente en la
+        terminal integrada y experimentando con el flujo de trabajo en tiempo
+        real con Live Server.
+      </p>
+    </section>
+  </body>
 </html>

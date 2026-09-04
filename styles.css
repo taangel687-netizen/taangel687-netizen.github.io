@@ -1,0 +1,217 @@
+/* Variables Globales y Reset Básico */
+:root {
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --text: #1a1a1a;
+  --subtext: #666666;
+  --border: #e5e5e5;
+  --primary: #2563eb;
+  --primary-light: #eff6ff;
+  --primary-hover: #1d4ed8;
+  --tag-bg: #e0e7ff;
+  --tag-text: #3730a3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  line-height: 1.6;
+}
+
+/* Secciones / Tarjetas del Portafolio */
+section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  color: var(--text);
+}
+
+/* 1. Perfil / Info Personal */
+.profile-header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.profile-img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.profile-subtitle {
+  margin: 0.2rem 0;
+  color: var(--subtext);
+  font-weight: 500;
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  margin: 0.6rem 0;
+  color: var(--text);
+}
+
+.links-list {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-link:hover {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+/* 2. Estudios */
+.education-item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.education-item p {
+  margin: 0.2rem 0 0 0;
+  color: var(--subtext);
+  font-size: 0.9rem;
+}
+
+/* 3. Proyectos Clickeables */
+.project-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  background: #fcfcfc;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.project-card:last-child {
+  margin-bottom: 0;
+}
+
+.project-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+}
+
+.project-card h3 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.project-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--subtext);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+/* 4. Grilla de Clases (14 Semanas) */
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.class-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  background: #fcfcfc;
+  transition: all 0.2s ease;
+}
+
+.class-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+}
+
+.class-card .week-tag {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.class-card h3 {
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
+  color: var(--text);
+}
+
+.class-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--subtext);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .links-list {
+    justify-content: center;
+  }
+}

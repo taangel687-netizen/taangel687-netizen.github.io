@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana 05 - React: Componentes, Props y Estilos | Angel Tocas</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Galería de evidencias */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .evidence-card {
+        background: var(--bg-tertiary);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0;
+        transition: all var(--transition-normal);
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-glow);
+      }
+      .evidence-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .evidence-card figcaption {
+        padding: 0.9rem 1.1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .docente-tag {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.9rem;
+        background: rgba(0, 191, 165, 0.1);
+        border: 1px solid rgba(0, 191, 165, 0.3);
+        border-radius: 50px;
+        color: var(--accent-teal);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">⚛️</span>
+          <span>Framework Frontend</span>
+        </div>
+        <h1 class="week-title">
+          Semana 05
+          <span class="gradient-text">React: Componentes, Props y Estilos</span>
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              />
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Semana 05
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+      <!-- 1. TEORÍA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Sesión Teórica</h2>
+        </div>
+        <span class="docente-tag">👨‍🏫 Dr. Jaime Suasnabar Terrel</span>
+
+        <div class="topic-card">
+          <div class="topic-icon">⚛️</div>
+          <h3>Estructura y operación de un Framework JS</h3>
+          <p class="topic-intro">
+            Un framework como <strong>React</strong> organiza la interfaz en
+            piezas reutilizables. Funciona con
+            <strong>Client Side Rendering</strong>: el navegador descarga
+            JavaScript y construye la página en el cliente.
+          </p>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">🖥️</span>
+              <div class="concept-content">
+                <strong>Client Side Rendering (CSR)</strong>
+                <p>
+                  El servidor entrega un HTML casi vacío y el JavaScript genera
+                  y actualiza la interfaz en el navegador.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">📦</span>
+              <div class="concept-content">
+                <strong>Gestión de dependencias</strong>
+                <p>
+                  Las librerías del proyecto se administran con un gestor de
+                  paquetes (<code>npm</code>) y se listan en
+                  <code>package.json</code>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🛠️</span>
+              <div class="concept-content">
+                <strong>Herramientas de creación de proyectos</strong>
+                <p>
+                  Herramientas como <code>Vite</code> generan la estructura
+                  inicial y un servidor de desarrollo.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >npm create vite@latest mi-app<br />
+              cd mi-app<br />
+              npm install<br />
+              npm run dev</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🧱</div>
+          <h3>Desarrollo basado en componentes</h3>
+          <p class="topic-intro">
+            Una aplicación React se arma combinando
+            <strong>componentes</strong>: funciones que devuelven parte de la
+            interfaz escrita en <strong>JSX</strong>, una sintaxis parecida a
+            HTML dentro de JavaScript.
+          </p>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">📝</span>
+                <h4>JSX</h4>
+              </div>
+              <p>
+                Permite escribir etiquetas dentro del código JavaScript e
+                insertar valores con <code>{ }</code>.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">📨</span>
+                <h4>Props</h4>
+              </div>
+              <p>Datos que un componente padre envía a un componente hijo.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">👶</span>
+                <h4>Children</h4>
+              </div>
+              <p>
+                Contenido que se coloca entre las etiquetas de un componente y
+                este lo muestra.
+              </p>
+            </div>
+          </div>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >function Tarjeta({ titulo, children }) {<br />
+              &nbsp;&nbsp;return (<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;div className="tarjeta"&gt;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;{titulo}&lt;/h2&gt;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{children}<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+              &nbsp;&nbsp;);<br />
+              }<br /><br />
+              &lt;Tarjeta titulo="Hola"&gt;<br />
+              &nbsp;&nbsp;&lt;p&gt;Contenido hijo&lt;/p&gt;<br />
+              &lt;/Tarjeta&gt;</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🎨</div>
+          <h3>Utilización de estilos en un Framework JS</h3>
+          <p class="topic-intro">
+            En React hay varias formas de aplicar estilos a los componentes:
+          </p>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">✏️</span>
+                <h4>Styles inline</h4>
+              </div>
+              <p>
+                Objeto de estilos en el atributo <code>style</code> del
+                elemento.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">📄</span>
+                <h4>Style Sheets</h4>
+              </div>
+              <p>Archivos <code>.css</code> importados en el componente.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🧩</span>
+                <h4>Style Modules</h4>
+              </div>
+              <p>
+                CSS con alcance local al componente, para evitar choques de
+                nombres.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">💅</span>
+                <h4>Styled Components</h4>
+              </div>
+              <p>
+                Estilos escritos dentro de JavaScript y asociados al componente.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🧰</span>
+                <h4>Framework CSS</h4>
+              </div>
+              <p>Uso de librerías como Bootstrap o Tailwind dentro de React.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evidencias teoría -->
+        <div class="topic-card">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión teórica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana5/semana5-suasnabar1.png"
+                alt="Evidencia teórica 1 - Semana 5"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana5/semana5-suasnabar2.png"
+                alt="Evidencia teórica 2 - Semana 5"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana5/semana5-suasnabar3.png"
+                alt="Evidencia teórica 3 - Semana 5"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 3</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana5/semana5-suasnabar4.png"
+                alt="Evidencia teórica 4 - Semana 5"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 4</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana5/semana5-suasnabar5.png"
+                alt="Evidencia teórica 5 - Semana 5"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 5</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana5/semana5-suasnabar6.png"
+                alt="Evidencia teórica 6 - Semana 5"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 6</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PRÁCTICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Sesión Práctica</h2>
+        </div>
+        <span class="docente-tag">🧑‍💻 Mg. Miguel Aguilar Coronación</span>
+
+        <p class="section-intro">
+          La práctica de la semana fue el
+          <strong
+            >Laboratorio 05A: pasar datos con props y children y mostrarlos en
+            un componente hijo</strong
+          >.
+        </p>
+
+        <div class="lab-grid">
+          <div class="lab-card">
+            <div class="lab-icon">🛠️</div>
+            <h4>Proyecto React</h4>
+            <p>Creación del proyecto e instalación de dependencias.</p>
+            <div class="tech-tags">
+              <span>Vite</span>
+              <span>npm</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">📨</div>
+            <h4>Props y children</h4>
+            <p>
+              Envío de datos desde un componente padre y visualización en un
+              componente hijo.
+            </p>
+            <div class="tech-tags">
+              <span>props</span>
+              <span>children</span>
+              <span>JSX</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🎨</div>
+            <h4>Estilos</h4>
+            <p>Aplicación de estilos a los componentes del laboratorio.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REFLEXIÓN METACOGNITIVA -->
+      <section class="content-section reflection-section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Reflexión Metacognitiva</h2>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <div class="reflection-icon">💡</div>
+            <h3>¿Qué aprendí?</h3>
+            <p>
+              Aprendí cómo funciona React: renderizado en el cliente, creación
+              de proyectos con Vite, componentes con JSX, comunicación entre
+              componentes con props y children, y las distintas formas de
+              aplicar estilos.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🎯</div>
+            <h3>¿Cómo lo aprendí?</h3>
+            <p>
+              Siguiendo la exposición teórica del docente y practicando en el
+              laboratorio, creando componentes y pasándoles datos hasta ver el
+              resultado en el navegador.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧭</div>
+            <h3>¿Para qué me sirve?</h3>
+            <p>
+              Para construir interfaces modernas dividiéndolas en partes
+              reutilizables. Es la base del frontend de mis proyectos fullstack.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧩</div>
+            <h3>¿Qué dificultades tuve?</h3>
+            <p>
+              Acostumbrarme a la sintaxis JSX y entender el flujo de datos de
+              padre a hijo mediante props.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🛠️</div>
+            <h3>¿Cómo las superé?</h3>
+            <p>
+              Practicando con ejemplos pequeños y revisando la documentación
+              oficial de React.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🚀</div>
+            <h3>¿Cómo lo aplicaré?</h3>
+            <p>
+              Usaré componentes y props en mis proyectos web, y es el paso
+              previo para trabajar con eventos, consumo de APIs y hooks en las
+              próximas semanas.
+            </p>
+          </div>
+        </div>
+
+        <div class="key-takeaways">
+          <h4>🔑 Conceptos Clave</h4>
+          <div class="takeaways-list">
+            <span class="takeaway-tag">React</span>
+            <span class="takeaway-tag">Client Side Rendering</span>
+            <span class="takeaway-tag">Vite</span>
+            <span class="takeaway-tag">Componentes</span>
+            <span class="takeaway-tag">JSX</span>
+            <span class="takeaway-tag">Props</span>
+            <span class="takeaway-tag">Children</span>
+            <span class="takeaway-tag">Estilos en React</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 05 - React: Componentes, Props y Estilos</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana 02 - HTML5, XML y CSS3 | Angel Tocas</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">📄</span>
+          <span>Estructura y Diseño Web</span>
+        </div>
+        <h1 class="week-title">
+          Semana 02
+          <span class="gradient-text">HTML5, XML y Hojas de Estilo CSS3</span>
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Semana 02
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+
+    <!-- Contenido de Aprendizaje -->
+    <section class="content-section">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2>Construcción de Páginas con HTML y XML</h2>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🌍</div>
+        <h3>Estándar Open Web Platform</h3>
+        <p class="topic-intro">
+          La <strong>Open Web Platform</strong> es el conjunto de tecnologías abiertas que permiten el desarrollo web. 
+          Está estandarizada por el W3C para garantizar la compatibilidad entre navegadores.
+        </p>
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">📝</span>
+              <h4>HTML5</h4>
+            </div>
+            <p>Lenguaje de marcado que define la <strong>estructura</strong> y el contenido de las páginas web.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">🎨</span>
+              <h4>CSS3</h4>
+            </div>
+            <p>Hojas de estilo que controlan la <strong>presentación visual</strong> y el diseño.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">⚙️</span>
+              <h4>JavaScript</h4>
+            </div>
+            <p>Lenguaje que añade <strong>interactividad</strong> y comportamiento dinámico.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">📦</span>
+              <h4>XML</h4>
+            </div>
+            <p>Lenguaje de marcado extensible para <strong>estructurar datos</strong> de forma legible.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🌳</div>
+        <h3>Árbol DOM (Document Object Model)</h3>
+        <p class="topic-intro">
+          El DOM representa la estructura de un documento HTML como un árbol de nodos, 
+          donde cada elemento es un nodo que puede ser manipulado mediante JavaScript.
+        </p>
+        <ul class="concept-list">
+          <li>
+            <span class="concept-icon">🔷</span>
+            <div class="concept-content">
+              <strong>Árbol de Nodos</strong>
+              <p>Cada elemento HTML se convierte en un nodo del árbol. Los nodos pueden tener padres, hijos y hermanos, formando una jerarquía.</p>
+            </div>
+          </li>
+          <li>
+            <span class="concept-icon">🎬</span>
+            <div class="concept-content">
+              <strong>Renderizado</strong>
+              <p>El navegador lee el HTML, construye el DOM, aplica los estilos CSS y finalmente renderiza la página visible.</p>
+            </div>
+          </li>
+          <li>
+            <span class="concept-icon">♻️</span>
+            <div class="concept-content">
+              <strong>Ciclo de Vida</strong>
+              <p>La página web pasa por distintas etapas: carga del HTML, construcción del DOM, aplicación de estilos, ejecución de JavaScript, y finalmente el renderizado completo.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🔍</div>
+        <h3>SEO y Compatibilidad entre Navegadores</h3>
+        <div class="layers-container">
+          <div class="layer-box frontend">
+            <h4>SEO (Search Engine Optimization)</h4>
+            <p>Optimización para motores de búsqueda</p>
+            <div class="tech-tags">
+              <span>Meta Tags</span>
+              <span>Semántica HTML</span>
+              <span>Alt en Imágenes</span>
+              <span>URLs Amigables</span>
+            </div>
+          </div>
+          <div class="layer-box backend">
+            <h4>Compatibilidad Cross-Browser</h4>
+            <p>Soporte entre diferentes navegadores</p>
+            <div class="tech-tags">
+              <span>Prefijos CSS</span>
+              <span>Polyfills</span>
+              <span>Fallbacks</span>
+            </div>
+          </div>
+        </div>
+        <p class="standards-note">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Es importante usar HTML semántico (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>) para mejorar el SEO y la accesibilidad.
+        </p>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🏷️</div>
+        <h3>Etiquetas Principales de HTML5</h3>
+        <p class="topic-intro">HTML5 introduce etiquetas semánticas que dan significado al contenido:</p>
+        
+        <div class="code-snippet" style="margin: 1.5rem 0;">
+          <code>&lt;header&gt; - Encabezado de la página o sección<br>
+&lt;nav&gt; - Menú de navegación<br>
+&lt;main&gt; - Contenido principal<br>
+&lt;article&gt; - Contenido independiente<br>
+&lt;section&gt; - Sección temática<br>
+&lt;aside&gt; - Contenido relacionado<br>
+&lt;footer&gt; - Pie de página</code>
+        </div>
+
+        <p class="standards-note">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Usar etiquetas semánticas mejora la accesibilidad y ayuda a los lectores de pantalla a navegar el contenido.
+        </p>
+      </div>
+    </section>
+
+    <!-- Diseño con CSS -->
+    <section class="content-section">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2>Diseño de Páginas con CSS3</h2>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🎨</div>
+        <h3>Sintaxis y Selectores CSS3</h3>
+        <p class="topic-intro">
+          CSS3 permite aplicar estilos a elementos HTML mediante selectores. 
+          La sintaxis básica consiste en: <strong>selector { propiedad: valor; }</strong>
+        </p>
+        <div class="code-snippet">
+          <code>/* Selector de clase */<br>
+.mi-clase {<br>
+  &nbsp;&nbsp;color: #00d4ff;<br>
+  &nbsp;&nbsp;font-size: 16px;<br>
+}<br><br>
+/* Selector de ID */<br>
+#mi-id {<br>
+  &nbsp;&nbsp;background: #0a192f;<br>
+}</code>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📏</div>
+        <h3>Block, Inline e Inline-Block</h3>
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">⬜</span>
+              <h4>Block</h4>
+            </div>
+            <p>Ocupa todo el ancho disponible y siempre empieza en una nueva línea. Ejemplo: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code></p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">▫️</span>
+              <h4>Inline</h4>
+            </div>
+            <p>Solo ocupa el espacio de su contenido y no acepta width/height. Ejemplo: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code></p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">◾</span>
+              <h4>Inline-Block</h4>
+            </div>
+            <p>Se comporta como inline pero permite width/height. Lo mejor de ambos mundos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📐</div>
+        <h3>Unidades de Medida</h3>
+        <ul class="concept-list">
+          <li>
+            <span class="concept-icon">📍</span>
+            <div class="concept-content">
+              <strong>Absolutas</strong>
+              <p><code>px</code> (píxeles) - Tamaño fijo, no cambia con el zoom del usuario.</p>
+            </div>
+          </li>
+          <li>
+            <span class="concept-icon">🔄</span>
+            <div class="concept-content">
+              <strong>Relativas</strong>
+              <p><code>%</code> (porcentaje) - Relativo al elemento padre. <code>em</code> y <code>rem</code> - Relativos al tamaño de fuente. <code>vw/vh</code> - Relativos al viewport (ancho/alto de la ventana).</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📦</div>
+        <h3>Flexbox Layout</h3>
+        <p class="topic-intro">
+          Flexbox es un modelo de diseño unidimensional que facilita la distribución de elementos en una fila o columna.
+        </p>
+        <div class="code-snippet">
+          <code>.contenedor {<br>
+  &nbsp;&nbsp;display: flex;<br>
+  &nbsp;&nbsp;justify-content: center; /* Horizontal */<br>
+  &nbsp;&nbsp;align-items: center; /* Vertical */<br>
+  &nbsp;&nbsp;gap: 1rem; /* Espacio entre elementos */<br>
+}</code>
+        </div>
+        <div class="tech-tags" style="margin-top: 1.5rem;">
+          <span>flex-direction</span>
+          <span>justify-content</span>
+          <span>align-items</span>
+          <span>flex-wrap</span>
+          <span>flex-grow</span>
+          <span>flex-shrink</span>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🎯</div>
+        <h3>Grid Layout</h3>
+        <p class="topic-intro">
+          Grid es un sistema bidimensional para crear layouts complejos con filas y columnas.
+        </p>
+        <div class="code-snippet">
+          <code>.grid-contenedor {<br>
+  &nbsp;&nbsp;display: grid;<br>
+  &nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br>
+  &nbsp;&nbsp;gap: 2rem;<br>
+}</code>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📍</div>
+        <h3>Tipos de Position</h3>
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">📌</span>
+              <h4>Static</h4>
+            </div>
+            <p>Posición por defecto. El elemento sigue el flujo normal del documento.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">🔗</span>
+              <h4>Relative</h4>
+            </div>
+            <p>Se desplaza respecto a su posición original sin afectar otros elementos.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">📍</span>
+              <h4>Absolute</h4>
+            </div>
+            <p>Se posiciona respecto al ancestro más cercano con position relative/absolute.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">🎯</span>
+              <h4>Fixed</h4>
+            </div>
+            <p>Se fija en una posición de la pantalla incluso al hacer scroll.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">📎</span>
+              <h4>Sticky</h4>
+            </div>
+            <p>Mezcla entre relative y fixed. Se pega al hacer scroll hasta cierto punto.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📱</div>
+        <h3>Diseño Fluido vs Diseño Responsivo</h3>
+        <div class="layers-container">
+          <div class="layer-box frontend">
+            <h4>Diseño Fluido</h4>
+            <p>Usa porcentajes y unidades relativas</p>
+            <div class="tech-tags">
+              <span>%</span>
+              <span>vw/vh</span>
+              <span>em/rem</span>
+            </div>
+          </div>
+          <div class="layer-box backend">
+            <h4>Diseño Responsivo</h4>
+            <p>Adapta con media queries</p>
+            <div class="tech-tags">
+              <span>@media</span>
+              <span>Breakpoints</span>
+              <span>Mobile First</span>
+            </div>
+          </div>
+        </div>
+        <div class="code-snippet" style="margin-top: 1.5rem;">
+          <code>/* Media Query para móviles */<br>
+@media (max-width: 768px) {<br>
+  &nbsp;&nbsp;.contenedor {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;flex-direction: column;<br>
+  &nbsp;&nbsp;}<br>
+}</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- Laboratorio -->
+    <section class="content-section">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2>Práctica de Laboratorio</h2>
+      </div>
+
+      <p class="section-intro">
+        En la sesión de laboratorio trabajamos con <strong>Flexbox</strong>, <strong>diseño fluido</strong> 
+        y <strong>diseño responsivo</strong> aplicando todo lo aprendido en código real.
+      </p>
+
+      <div class="lab-grid">
+        <div class="lab-card">
+          <div class="lab-icon">🎯</div>
+          <h4>Laboratorio 02A</h4>
+          <p>Diseño con Flexbox para crear layouts flexibles y adaptativos</p>
+          <div class="extension-list">
+            <li>✓ Contenedor flex</li>
+            <li>✓ Alineación de elementos</li>
+            <li>✓ Distribución de espacio</li>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-icon">💧</div>
+          <h4>Diseño Fluido</h4>
+          <p>Uso de unidades relativas para que el diseño se adapte al tamaño del contenedor</p>
+          <div class="tech-tags">
+            <span>%</span>
+            <span>vw</span>
+            <span>rem</span>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-icon">📱</div>
+          <h4>Diseño Responsivo</h4>
+          <p>Implementación de media queries para diferentes dispositivos</p>
+          <div class="shortcut-list">
+            <div class="shortcut-item">
+              <code>Desktop</code>
+              <span>> 1024px</span>
+            </div>
+            <div class="shortcut-item">
+              <code>Tablet</code>
+              <span>768px - 1024px</span>
+            </div>
+            <div class="shortcut-item">
+              <code>Mobile</code>
+              <span>< 768px</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-icon">✅</div>
+          <h4>Práctica Calificada 01</h4>
+          <p>Se realizó la primera práctica calificada sobre HTML y CSS con GitHub</p>
+          <div class="git-commands">
+            <code>Vencimiento: 8 sept 2026</code>
+            <code>Entrega: GitHub Repository</code>
+          </div>
+          <a 
+            href="https://github.com/taangel687-netizen/PracticaCalificada1.git" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn-primary"
+            style="margin-top: 1rem; padding: 0.75rem 1.5rem; display: inline-block; font-size: 0.9rem;"
+          >
+            Ver Repositorio GitHub →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflexión -->
+    <section class="content-section reflection-section">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2>Reflexión sobre lo Aprendido</h2>
+      </div>
+
+      <div class="reflection-grid">
+        <div class="reflection-card">
+          <div class="reflection-icon">💡</div>
+          <h3>¿Qué aprendí esta semana?</h3>
+          <p>
+            Aprendí la estructura del DOM y cómo el navegador renderiza las páginas web. 
+            Entendí la diferencia entre HTML (estructura), CSS (presentación) y JavaScript (comportamiento). 
+            También aprendí a usar Flexbox para crear layouts flexibles y diseño responsivo con media queries.
+          </p>
+        </div>
+
+        <div class="reflection-card">
+          <div class="reflection-icon">🎯</div>
+          <h3>¿Qué fue lo más interesante?</h3>
+          <p>
+            Lo más interesante fue entender cómo funciona Flexbox y lo fácil que hace crear diseños complejos. 
+            También me pareció importante aprender sobre SEO y compatibilidad entre navegadores, 
+            ya que son aspectos cruciales para aplicaciones web profesionales.
+          </p>
+        </div>
+      </div>
+
+      <div class="key-takeaways">
+        <h4>🔑 Conceptos Clave</h4>
+        <div class="takeaways-list">
+          <span class="takeaway-tag">HTML5 Semántico</span>
+          <span class="takeaway-tag">DOM Tree</span>
+          <span class="takeaway-tag">CSS3 Flexbox</span>
+          <span class="takeaway-tag">Grid Layout</span>
+          <span class="takeaway-tag">Diseño Responsivo</span>
+          <span class="takeaway-tag">SEO Básico</span>
+          <span class="takeaway-tag">Media Queries</span>
+          <span class="takeaway-tag">Position Types</span>
+        </div>
+      </div>
+    </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 02 - HTML5, XML y CSS3</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -930,3 +930,663 @@ img {
     font-size: 0.95rem;
   }
 }
+
+
+/* ==========================================================================
+   ESTILOS PARA PÁGINAS DE SEMANAS
+   ========================================================================== */
+
+/* Body específico para semanas */
+.week-body {
+  background: var(--bg-primary);
+  padding-top: 0;
+}
+
+/* Navegación de regreso */
+.week-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+.back-link {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--accent-primary);
+  gap: 0.75rem;
+}
+
+.back-link svg {
+  transition: transform var(--transition-fast);
+}
+
+.back-link:hover svg {
+  transform: translateX(-3px);
+}
+
+/* Hero de la semana */
+.week-hero {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  padding: 4rem 2rem 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.week-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(0, 153, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.week-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.week-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.badge-icon {
+  font-size: 1.2rem;
+}
+
+.week-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.week-title .gradient-text {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 2.2rem;
+}
+
+.week-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.meta-item svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.meta-divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Container del contenido */
+.week-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Secciones de contenido */
+.content-section {
+  margin-bottom: 4rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(0, 212, 255, 0.15);
+  line-height: 1;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.section-intro {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+/* Topic Cards */
+.topic-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.topic-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: var(--shadow-glow);
+}
+
+.topic-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.topic-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.topic-intro {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.topic-intro strong {
+  color: var(--accent-primary);
+}
+
+/* Concept List */
+.concept-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.concept-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+  background: rgba(0, 212, 255, 0.05);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.concept-list li:hover {
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.concept-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.concept-content strong {
+  display: block;
+  color: var(--accent-primary);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.concept-content p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.concept-content code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+}
+
+/* Comparison Grid */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.comparison-item {
+  background: rgba(0, 153, 255, 0.05);
+  border: 1px solid rgba(0, 153, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.comparison-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 153, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 153, 255, 0.15);
+}
+
+.comparison-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.comparison-emoji {
+  font-size: 1.8rem;
+}
+
+.comparison-item h4 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.comparison-item p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.comparison-item code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+}
+
+/* Layers Container */
+.layers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.layer-box {
+  background: var(--bg-tertiary);
+  border: 2px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.layer-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.layer-box.frontend {
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.layer-box.backend {
+  border-color: rgba(0, 153, 255, 0.3);
+}
+
+.layer-box h4 {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--accent-primary);
+}
+
+.layer-box p {
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tech-tags span {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.standards-note {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 191, 165, 0.1);
+  border-left: 3px solid var(--accent-teal);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.standards-note svg {
+  flex-shrink: 0;
+  stroke: var(--accent-teal);
+  fill: none;
+  stroke-width: 2;
+}
+
+.standards-note strong {
+  color: var(--accent-teal);
+}
+
+/* Lab Grid */
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.lab-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.lab-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: var(--shadow-glow);
+}
+
+.lab-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.lab-card h4 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.lab-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.extension-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.extension-list li {
+  color: var(--accent-primary);
+  padding: 0.4rem 0;
+  font-weight: 500;
+}
+
+.shortcut-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.shortcut-item code {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent-primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+.shortcut-item span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.code-snippet {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.code-snippet code {
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.git-commands {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.git-commands code {
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 3px solid var(--accent-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Reflection Section */
+.reflection-section {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.03) 0%, rgba(0, 153, 255, 0.03) 100%);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.reflection-card {
+  background: var(--bg-secondary);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.reflection-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.reflection-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.reflection-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  color: var(--accent-primary);
+}
+
+.reflection-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.key-takeaways {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.key-takeaways h4 {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.takeaways-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.takeaway-tag {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  color: var(--accent-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.takeaway-tag:hover {
+  background: rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Footer de la semana */
+.week-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.week-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.week-footer p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.footer-link {
+  color: var(--accent-primary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--accent-secondary);
+  gap: 0.5rem;
+}
+
+/* Responsive para semanas */
+@media (max-width: 768px) {
+  .week-title {
+    font-size: 2rem;
+  }
+
+  .week-title .gradient-text {
+    font-size: 1.5rem;
+  }
+
+  .section-number {
+    font-size: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .lab-grid,
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .week-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meta-divider {
+    display: none;
+  }
+}

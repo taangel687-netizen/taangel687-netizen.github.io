@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana 03 - Bootstrap y Tailwind CSS | Angel Tocas</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Galería de evidencias (solo semana 03) */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .evidence-card {
+        background: var(--bg-tertiary);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0;
+        transition: all var(--transition-normal);
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-glow);
+      }
+      .evidence-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .evidence-card figcaption {
+        padding: 0.9rem 1.1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .docente-tag {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.9rem;
+        background: rgba(0, 191, 165, 0.1);
+        border: 1px solid rgba(0, 191, 165, 0.3);
+        border-radius: 50px;
+        color: var(--accent-teal);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">🎨</span>
+          <span>Frameworks CSS</span>
+        </div>
+        <h1 class="week-title">
+          Semana 03
+          <span class="gradient-text">Bootstrap y Tailwind CSS</span>
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              />
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Semana 03
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+      <!-- 1. TEORÍA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Sesión Teórica</h2>
+        </div>
+        <span class="docente-tag">👨‍🏫 Dr. Jaime Suasnabar Terrel</span>
+
+        <div class="topic-card">
+          <div class="topic-icon">🅱️</div>
+          <h3>Bootstrap: Layout y Components</h3>
+          <p class="topic-intro">
+            <strong>Bootstrap</strong> es una librería CSS que ofrece un sistema
+            de rejilla y componentes ya diseñados, para construir interfaces
+            responsivas sin escribir todo el CSS desde cero.
+          </p>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">📐</span>
+              <div class="concept-content">
+                <strong>Layout (sistema de rejilla)</strong>
+                <p>
+                  Se organiza con <code>container</code>, <code>row</code> y
+                  <code>col</code>. La fila se divide en 12 columnas que se
+                  adaptan según el tamaño de pantalla (<code>col-md-6</code>,
+                  <code>col-lg-4</code>).
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🧩</span>
+              <div class="concept-content">
+                <strong>Components</strong>
+                <p>
+                  Elementos listos para usar como botones, tarjetas, barras de
+                  navegación, formularios y modales, personalizables con clases.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >&lt;div class="container"&gt;<br />
+              &nbsp;&nbsp;&lt;div class="row"&gt;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-6"&gt;Columna
+              1&lt;/div&gt;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-md-6"&gt;Columna
+              2&lt;/div&gt;<br />
+              &nbsp;&nbsp;&lt;/div&gt;<br />
+              &lt;/div&gt;</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🌬️</div>
+          <h3>Tailwind CSS: estilos con clases utilitarias</h3>
+          <p class="topic-intro">
+            <strong>Tailwind</strong> no trae componentes prediseñados: ofrece
+            clases pequeñas de una sola función que se combinan directamente en
+            el HTML para construir cualquier diseño.
+          </p>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🔤</span>
+                <h4>Tipografía</h4>
+              </div>
+              <p>
+                Font, line, text, background, borders, effects, tables y
+                spacing.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">📦</span>
+                <h4>Layout</h4>
+              </div>
+              <p>Container, columns, break, box, display y position.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">↔️</span>
+                <h4>Flexbox</h4>
+              </div>
+              <p>Flex básico, direction, wrap, grow y shrink.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🖥️</span>
+                <h4>Application UI</h4>
+              </div>
+              <p>
+                Avatars, badges, dropdowns, button y button group; además
+                shells, heading, data display, list, form, feedback, navigation
+                y overlays.
+              </p>
+            </div>
+          </div>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >&lt;button class="px-4 py-2 bg-blue-500 text-white rounded-lg
+              hover:bg-blue-600"&gt;<br />
+              &nbsp;&nbsp;Enviar<br />
+              &lt;/button&gt;</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">⚖️</div>
+          <h3>Bootstrap vs Tailwind</h3>
+          <div class="layers-container">
+            <div class="layer-box frontend">
+              <h4>Bootstrap</h4>
+              <p>Componentes prediseñados</p>
+              <div class="tech-tags">
+                <span>Rápido de iniciar</span>
+                <span>Grid de 12 columnas</span>
+                <span>Look reconocible</span>
+              </div>
+            </div>
+            <div class="layer-box backend">
+              <h4>Tailwind</h4>
+              <p>Clases utilitarias</p>
+              <div class="tech-tags">
+                <span>Diseño a medida</span>
+                <span>Control total</span>
+                <span>Sin salir del HTML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evidencias teoría -->
+        <div class="topic-card">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión teórica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-suasnabar1.png"
+                alt="Evidencia teórica 1 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-suasnabar2.png"
+                alt="Evidencia teórica 2 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-suasnabar3.png"
+                alt="Evidencia teórica 3 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 3</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-suasnabar4.png"
+                alt="Evidencia teórica 4 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 4</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PRÁCTICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Sesión Práctica</h2>
+        </div>
+        <span class="docente-tag">🧑‍💻 Mg. Miguel Aguilar Coronación</span>
+
+        <p class="section-intro">
+          En el laboratorio se aplicó lo visto en teoría con Bootstrap y
+          Tailwind, orientado a la
+          <strong
+            >Práctica Calificada 03: desarrollo de un sitio web con CSS</strong
+          >.
+        </p>
+
+        <div class="lab-grid">
+          <div class="lab-card">
+            <div class="lab-icon">🅱️</div>
+            <h4>Bootstrap</h4>
+            <p>Maquetación con el sistema de rejilla y uso de componentes.</p>
+            <div class="tech-tags">
+              <span>container</span>
+              <span>row / col</span>
+              <span>components</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🌬️</div>
+            <h4>Tailwind CSS</h4>
+            <p>
+              Estilos con clases utilitarias, flexbox y elementos de Application
+              UI.
+            </p>
+            <div class="tech-tags">
+              <span>utilities</span>
+              <span>flex</span>
+              <span>UI elements</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">✅</div>
+            <h4>Práctica Calificada 03</h4>
+            <p>
+              Desarrollo de un sitio web con CSS aplicando los frameworks de la
+              semana.
+            </p>
+          </div>
+        </div>
+
+        <!-- Evidencias práctica -->
+        <div class="topic-card" style="margin-top: 2rem">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión práctica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-aguilar1.png"
+                alt="Evidencia práctica 1 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-aguilar2.png"
+                alt="Evidencia práctica 2 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana3/semana3-aguilar3.png"
+                alt="Evidencia práctica 3 - Semana 3"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 3</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REFLEXIÓN -->
+      <section class="content-section reflection-section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Reflexión sobre lo Aprendido</h2>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <div class="reflection-icon">💡</div>
+            <h3>¿Qué aprendí esta semana?</h3>
+            <p>
+              Aprendí a usar dos enfoques distintos para estilizar una página:
+              Bootstrap, con su rejilla y componentes listos, y Tailwind, con
+              clases utilitarias que permiten construir el diseño directamente
+              en el HTML. Entendí que ambos aceleran el trabajo frente al CSS
+              escrito desde cero.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🎯</div>
+            <h3>¿Qué fue lo más interesante?</h3>
+            <p>
+              Lo más interesante fue comparar ambas librerías: Bootstrap es más
+              rápido para salir con una interfaz funcional, mientras que
+              Tailwind da más libertad para lograr un diseño propio.
+            </p>
+          </div>
+        </div>
+
+        <div class="key-takeaways">
+          <h4>🔑 Conceptos Clave</h4>
+          <div class="takeaways-list">
+            <span class="takeaway-tag">Bootstrap Grid</span>
+            <span class="takeaway-tag">Components</span>
+            <span class="takeaway-tag">Tailwind Utilities</span>
+            <span class="takeaway-tag">Flexbox</span>
+            <span class="takeaway-tag">Application UI</span>
+            <span class="takeaway-tag">Diseño Responsivo</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 03 - Bootstrap y Tailwind CSS</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

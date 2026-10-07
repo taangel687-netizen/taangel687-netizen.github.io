@@ -3,134 +3,291 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Semana 01 - Fundamentos Web y VSC</title>
+    <title>Semana 01 - Fundamentos Web y VSC | Angel Tocas</title>
     <!-- Vinculamos al CSS de la carpeta raíz -->
     <link rel="stylesheet" href="../styles.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <!-- Botón para regresar al portafolio principal -->
-    <p><a href="../index.html" class="btn-link">← Volver al Portafolio</a></p>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
 
-    <!-- Encabezado de la Clase -->
-    <section>
-      <span class="week-tag">Cuaderno de Campo</span>
-      <h1 style="margin-top: 0.2rem">
-        Semana 01: Fundamentos Web y Configuración del Entorno
-      </h1>
-      <p style="color: var(--subtext); margin: 0">
-        Curso: Desarrollo de Aplicaciones Web — UNCP
-      </p>
-    </section>
+    <!-- Encabezado Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">📚</span>
+          <span>Cuaderno de Campo</span>
+        </div>
+        <h1 class="week-title">
+          Semana 01
+          <span class="gradient-text">Fundamentos Web y Configuración del Entorno</span>
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Semana 01
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
 
     <!-- 1. TEMAS APRENDIDOS -->
-    <section>
-      <h2>1. Temas Aprendidos (Definiciones y Procedimiento)</h2>
+    <section class="content-section">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2>Temas Aprendidos</h2>
+      </div>
 
-      <h3>¿Cómo funciona la Web y el protocolo HTTP?</h3>
-      <p>
-        La Web opera mediante un modelo **Cliente-Servidor**. Cuando ingresamos
-        una URL en el navegador:
-      </p>
-      <ul>
-        <li>
-          El <strong>DNS</strong> traduce el nombre de dominio (ej.
-          <em>google.com</em>) a una dirección IP numérica.
-        </li>
-        <li>
-          Se establece una conexión mediante <strong>TCP/IP</strong> dividiendo
-          los datos en paquetes.
-        </li>
-        <li>
-          El cliente realiza una petición <strong>HTTP/HTTPS</strong> (GET,
-          POST) y el servidor responde con un código de estado (200 OK, 404 Not
-          Found) junto con los archivos solicitados.
-        </li>
-      </ul>
+      <div class="topic-card">
+        <div class="topic-icon">🌐</div>
+        <h3>¿Cómo funciona la Web y el protocolo HTTP?</h3>
+        <p class="topic-intro">
+          La Web opera mediante un modelo <strong>Cliente-Servidor</strong>. 
+          Cuando ingresamos una URL en el navegador ocurren los siguientes pasos:
+        </p>
+        <ul class="concept-list">
+          <li>
+            <span class="concept-icon">🔍</span>
+            <div class="concept-content">
+              <strong>DNS (Domain Name System)</strong>
+              <p>Traduce el nombre de dominio (ej. <code>google.com</code>) a una dirección IP numérica.</p>
+            </div>
+          </li>
+          <li>
+            <span class="concept-icon">🔗</span>
+            <div class="concept-content">
+              <strong>TCP/IP</strong>
+              <p>Se establece una conexión dividiendo los datos en paquetes para su transmisión.</p>
+            </div>
+          </li>
+          <li>
+            <span class="concept-icon">📡</span>
+            <div class="concept-content">
+              <strong>HTTP/HTTPS</strong>
+              <p>El cliente realiza una petición (GET, POST) y el servidor responde con un código de estado (200 OK, 404 Not Found) junto con los archivos solicitados.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-      <h3>Diferencias en Soluciones Web</h3>
-      <ul>
-        <li>
-          <strong>Página Web:</strong> Documento estático accesible mediante una
-          URL (ej. <code>about.html</code>).
-        </li>
-        <li>
-          <strong>Sitio Web:</strong> Colección de páginas web bajo un mismo
-          dominio.
-        </li>
-        <li>
-          <strong>Aplicación Web:</strong> Software interactivo en un servidor
-          que maneja lógica de negocio, estado y bases de datos.
-        </li>
-        <li>
-          <strong>Sistema Web:</strong> Conjunto integrado de aplicaciones y
-          servicios complejos.
-        </li>
-      </ul>
+      <div class="topic-card">
+        <div class="topic-icon">🏗️</div>
+        <h3>Diferencias en Soluciones Web</h3>
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">📄</span>
+              <h4>Página Web</h4>
+            </div>
+            <p>Documento estático accesible mediante una URL (ej. <code>about.html</code>).</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">🌐</span>
+              <h4>Sitio Web</h4>
+            </div>
+            <p>Colección de páginas web bajo un mismo dominio.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">⚡</span>
+              <h4>Aplicación Web</h4>
+            </div>
+            <p>Software interactivo en un servidor que maneja lógica de negocio, estado y bases de datos.</p>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-header">
+              <span class="comparison-emoji">🏢</span>
+              <h4>Sistema Web</h4>
+            </div>
+            <p>Conjunto integrado de aplicaciones y servicios complejos.</p>
+          </div>
+        </div>
+      </div>
 
-      <h3>Estándares y Roles (Open Web Platform)</h3>
-      <p>
-        Comprendí la diferencia entre las capas de desarrollo:
-        <strong>Frontend</strong> (lo que ve el usuario con HTML, CSS, JS) y
-        <strong>Backend</strong> (procesamiento en servidor y base de datos),
-        regidos por estándares de la W3C.
-      </p>
+      <div class="topic-card">
+        <div class="topic-icon">⚙️</div>
+        <h3>Estándares y Roles (Open Web Platform)</h3>
+        <p>
+          Comprendí la diferencia entre las capas de desarrollo:
+        </p>
+        <div class="layers-container">
+          <div class="layer-box frontend">
+            <h4>Frontend</h4>
+            <p>Lo que ve el usuario</p>
+            <div class="tech-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+          <div class="layer-box backend">
+            <h4>Backend</h4>
+            <p>Procesamiento en servidor</p>
+            <div class="tech-tags">
+              <span>Bases de Datos</span>
+              <span>APIs</span>
+              <span>Lógica de Negocio</span>
+            </div>
+          </div>
+        </div>
+        <p class="standards-note">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Regidos por estándares de la <strong>W3C</strong> (World Wide Web Consortium)
+        </p>
+      </div>
     </section>
 
-    <!-- 2. EJERCICIOS DE LABORATORIO - RESULTADOS -->
-    <section>
-      <h2>2. Ejercicios de Laboratorio (Resultados)</h2>
-      <p>
-        Durante la sesión práctica se realizaron los siguientes procedimientos
-        en Visual Studio Code:
+    <!-- 2. EJERCICIOS DE LABORATORIO -->
+    <section class="content-section">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2>Ejercicios de Laboratorio</h2>
+      </div>
+
+      <p class="section-intro">
+        Durante la sesión práctica se realizaron los siguientes procedimientos en Visual Studio Code:
       </p>
 
-      <ul>
-        <li>
-          <strong>Configuración del Entorno:</strong> Instalación de VSC y
-          extensiones esenciales (Live Server, Prettier, Material Icon Theme).
-        </li>
-        <li>
-          <strong>Atajos de Teclado Practicados:</strong>
-          <ul>
-            <li><code>Ctrl + P</code> para navegación rápida de archivos.</li>
-            <li><code>Ctrl + Shift + P</code> para la Paleta de Comandos.</li>
-            <li><code>Ctrl + ~</code> para alternar la terminal integrada.</li>
-            <li>
-              <code>! + Tab</code> mediante Emmet para generar el boilerplate de
-              HTML5.
-            </li>
+      <div class="lab-grid">
+        <div class="lab-card">
+          <div class="lab-icon">🛠️</div>
+          <h4>Configuración del Entorno</h4>
+          <p>Instalación de VSC y extensiones esenciales:</p>
+          <ul class="extension-list">
+            <li>✓ Live Server</li>
+            <li>✓ Prettier</li>
+            <li>✓ Material Icon Theme</li>
           </ul>
-        </li>
-        <li>
-          <strong>Primer Archivo HTML:</strong> Creación de la estructura base y
-          previsualización en tiempo real mediante Live Server.
-        </li>
-        <li>
-          <strong>Control de Versiones:</strong> Inicialización de repositorio
-          local Git y publicación del código en GitHub.
-        </li>
-      </ul>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-icon">⌨️</div>
+          <h4>Atajos de Teclado</h4>
+          <div class="shortcut-list">
+            <div class="shortcut-item">
+              <code>Ctrl + P</code>
+              <span>Navegación rápida de archivos</span>
+            </div>
+            <div class="shortcut-item">
+              <code>Ctrl + Shift + P</code>
+              <span>Paleta de Comandos</span>
+            </div>
+            <div class="shortcut-item">
+              <code>Ctrl + ~</code>
+              <span>Terminal integrada</span>
+            </div>
+            <div class="shortcut-item">
+              <code>! + Tab</code>
+              <span>Boilerplate HTML5 (Emmet)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-icon">📝</div>
+          <h4>Primer Archivo HTML</h4>
+          <p>Creación de la estructura base y previsualización en tiempo real mediante Live Server.</p>
+          <div class="code-snippet">
+            <code>&lt;!DOCTYPE html&gt;<br>&lt;html lang="es"&gt;<br>  ...<br>&lt;/html&gt;</code>
+          </div>
+        </div>
+
+        <div class="lab-card">
+          <div class="lab-icon">🔄</div>
+          <h4>Control de Versiones</h4>
+          <p>Inicialización de repositorio local Git y publicación del código en GitHub.</p>
+          <div class="git-commands">
+            <code>git init</code>
+            <code>git add .</code>
+            <code>git commit -m "..."</code>
+            <code>git push</code>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 3. REFLEXIÓN METACOGNITIVA -->
-    <section>
-      <h2>3. Reflexión Metacognitiva</h2>
+    <section class="content-section reflection-section">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2>Reflexión Metacognitiva</h2>
+      </div>
 
-      <h3>¿Qué aprendí?</h3>
-      <p>
-        Aprendí a diferenciar conceptualmente las arquitecturas web y a
-        configurar un entorno de desarrollo profesional con Visual Studio Code,
-        aplicando buenas prácticas de formateo automático y control de versiones
-        con Git.
-      </p>
+      <div class="reflection-grid">
+        <div class="reflection-card">
+          <div class="reflection-icon">💡</div>
+          <h3>¿Qué aprendí?</h3>
+          <p>
+            Aprendí a diferenciar conceptualmente las arquitecturas web y a
+            configurar un entorno de desarrollo profesional con Visual Studio Code,
+            aplicando buenas prácticas de formateo automático y control de versiones
+            con Git.
+          </p>
+        </div>
 
-      <h3>¿Cómo lo aprendí?</h3>
-      <p>
-        A través de la exposición teórica docente y la aplicación práctica
-        guiada en laboratorio, ejecutando los comandos directamente en la
-        terminal integrada y experimentando con el flujo de trabajo en tiempo
-        real con Live Server.
-      </p>
+        <div class="reflection-card">
+          <div class="reflection-icon">🎯</div>
+          <h3>¿Cómo lo aprendí?</h3>
+          <p>
+            A través de la exposición teórica docente y la aplicación práctica
+            guiada en laboratorio, ejecutando los comandos directamente en la
+            terminal integrada y experimentando con el flujo de trabajo en tiempo
+            real con Live Server.
+          </p>
+        </div>
+      </div>
+
+      <div class="key-takeaways">
+        <h4>🔑 Puntos Clave</h4>
+        <div class="takeaways-list">
+          <span class="takeaway-tag">HTTP Protocol</span>
+          <span class="takeaway-tag">DNS Resolution</span>
+          <span class="takeaway-tag">VSC Setup</span>
+          <span class="takeaway-tag">Git Workflow</span>
+          <span class="takeaway-tag">Frontend vs Backend</span>
+          <span class="takeaway-tag">Live Server</span>
+        </div>
+      </div>
     </section>
+
+    </div>
+
+    <!-- Footer de la Semana -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 01 - Fundamentos Web y Configuración del Entorno</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
   </body>
 </html>

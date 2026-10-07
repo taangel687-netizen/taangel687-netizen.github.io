@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Semana 04 - JavaScript, TypeScript, DOM y Canvas | Angel Tocas
+    </title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Galería de evidencias */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .evidence-card {
+        background: var(--bg-tertiary);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0;
+        transition: all var(--transition-normal);
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-glow);
+      }
+      .evidence-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .evidence-card figcaption {
+        padding: 0.9rem 1.1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .docente-tag {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.9rem;
+        background: rgba(0, 191, 165, 0.1);
+        border: 1px solid rgba(0, 191, 165, 0.3);
+        border-radius: 50px;
+        color: var(--accent-teal);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">⚡</span>
+          <span>Programación Frontend</span>
+        </div>
+        <h1 class="week-title">
+          Semana 04
+          <span class="gradient-text"
+            >JavaScript, TypeScript, DOM y Canvas</span
+          >
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              />
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Semana 04
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+      <!-- 1. TEORÍA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Sesión Teórica</h2>
+        </div>
+        <span class="docente-tag">👨‍🏫 Dr. Jaime Suasnabar Terrel</span>
+
+        <div class="topic-card">
+          <div class="topic-icon">🧠</div>
+          <h3>Fundamentos de JavaScript y TypeScript</h3>
+          <p class="topic-intro">
+            <strong>JavaScript</strong> es el lenguaje que da comportamiento a
+            la web y se ejecuta en un <strong>motor</strong> dentro del
+            navegador (por ejemplo V8 en Chrome). <strong>TypeScript</strong> lo
+            extiende agregando tipos estáticos, de modo que muchos errores se
+            detectan antes de ejecutar el código.
+          </p>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">📦</span>
+              <div class="concept-content">
+                <strong>Variables y operadores</strong>
+                <p>
+                  Se declaran con <code>let</code> y <code>const</code> (y el
+                  antiguo <code>var</code>). Los operadores pueden ser
+                  aritméticos, de comparación, lógicos y de asignación.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🔢</span>
+              <div class="concept-content">
+                <strong>Tipos de datos</strong>
+                <p>
+                  Números, Strings, Booleanos, Objetos y métodos, además de
+                  otros como <code>null</code> y <code>undefined</code>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🔁</span>
+              <div class="concept-content">
+                <strong>Estructuras de control y bucles</strong>
+                <p>
+                  Condicionales (<code>if</code>, <code>switch</code>) y
+                  repetitivas (<code>for</code>, <code>while</code>) para
+                  controlar el flujo del programa.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >const nombre = "Angel";<br />
+              let edad = 22;<br /><br />
+              for (let i = 0; i &lt; 3; i++) {<br />
+              &nbsp;&nbsp;console.log(`Vuelta ${i}`);<br />
+              }<br /><br />
+              // TypeScript: tipos explícitos<br />
+              let curso: string = "Aplicaciones Web";</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🧮</div>
+          <h3>Funciones</h3>
+          <p class="topic-intro">
+            Las funciones agrupan código reutilizable. Se vieron distintas
+            formas de escribirlas e invocarlas:
+          </p>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🧾</span>
+                <h4>Sintaxis e invocación</h4>
+              </div>
+              <p>
+                Declaración con <code>function</code> y llamada con paréntesis.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">👤</span>
+                <h4>Anónimas</h4>
+              </div>
+              <p>Funciones sin nombre, usadas como valores o callbacks.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🧱</span>
+                <h4>Función objeto</h4>
+              </div>
+              <p>Funciones que se usan como métodos de un objeto.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">➡️</span>
+                <h4>Flecha</h4>
+              </div>
+              <p>Sintaxis corta con <code>=&gt;</code>.</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🚀</span>
+                <h4>Auto invocadas</h4>
+              </div>
+              <p>Se ejecutan en el mismo momento en que se definen (IIFE).</p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🔒</span>
+                <h4>Closures</h4>
+              </div>
+              <p>
+                Una función que recuerda las variables del ámbito donde nació.
+              </p>
+            </div>
+          </div>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >const sumar = (a, b) =&gt; a + b;<br /><br />
+              (function () {<br />
+              &nbsp;&nbsp;console.log("Me ejecuto sola");<br />
+              })();<br /><br />
+              function contador() {<br />
+              &nbsp;&nbsp;let n = 0;<br />
+              &nbsp;&nbsp;return () =&gt; ++n; // closure<br />
+              }</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🌳</div>
+          <h3>El DOM con JavaScript</h3>
+          <p class="topic-intro">
+            Con JavaScript se puede <strong>leer y modificar el DOM</strong>:
+            seleccionar elementos, cambiar su contenido y estilos, y responder a
+            eventos del usuario.
+          </p>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">🎯</span>
+              <div class="concept-content">
+                <strong>Métodos y propiedades</strong>
+                <p>
+                  <code>getElementById</code>, <code>querySelector</code>,
+                  <code>textContent</code>, <code>addEventListener</code>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🎨</span>
+              <div class="concept-content">
+                <strong>Elementos y estilos</strong>
+                <p>
+                  Crear elementos con <code>createElement</code> y cambiar
+                  estilos con <code>style</code> o <code>classList</code>.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >const titulo = document.querySelector("h1");<br />
+              titulo.textContent = "Hola DOM";<br />
+              titulo.style.color = "#00d4ff";</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🖼️</div>
+          <h3>Animaciones y gráficos con Canvas</h3>
+          <p class="topic-intro">
+            El elemento <code>&lt;canvas&gt;</code> es un lienzo donde se dibuja
+            con JavaScript. Al redibujar cuadro por cuadro se logran
+            animaciones.
+          </p>
+          <div class="code-snippet">
+            <code
+              >const ctx = canvas.getContext("2d");<br />
+              let x = 0;<br /><br />
+              function animar() {<br />
+              &nbsp;&nbsp;ctx.clearRect(0, 0, canvas.width, canvas.height);<br />
+              &nbsp;&nbsp;ctx.fillRect(x, 50, 40, 40);<br />
+              &nbsp;&nbsp;x += 2;<br />
+              &nbsp;&nbsp;requestAnimationFrame(animar);<br />
+              }<br />
+              animar();</code
+            >
+          </div>
+        </div>
+
+        <!-- Evidencias teoría -->
+        <div class="topic-card">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión teórica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-suasnabar1.png"
+                alt="Evidencia teórica 1 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-suasnabar2.png"
+                alt="Evidencia teórica 2 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 2</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PRÁCTICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Sesión Práctica</h2>
+        </div>
+        <span class="docente-tag">🧑‍💻 Mg. Miguel Aguilar Coronación</span>
+
+        <p class="section-intro">
+          En el laboratorio se aplicó JavaScript sobre el DOM y el Canvas para
+          el
+          <strong
+            >Laboratorio 04: desarrollo de una animación con JavaScript</strong
+          >.
+        </p>
+
+        <div class="lab-grid">
+          <div class="lab-card">
+            <div class="lab-icon">⚙️</div>
+            <h4>JavaScript</h4>
+            <p>
+              Variables, funciones y estructuras de control aplicadas al
+              ejercicio.
+            </p>
+            <div class="tech-tags">
+              <span>let / const</span>
+              <span>funciones</span>
+              <span>bucles</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🌳</div>
+            <h4>Manipulación del DOM</h4>
+            <p>
+              Selección de elementos y cambio de contenido y estilos desde
+              JavaScript.
+            </p>
+            <div class="tech-tags">
+              <span>querySelector</span>
+              <span>eventos</span>
+              <span>estilos</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🎞️</div>
+            <h4>Laboratorio 04</h4>
+            <p>Desarrollo de una animación con JavaScript usando Canvas.</p>
+            <div class="tech-tags">
+              <span>canvas</span>
+              <span>requestAnimationFrame</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evidencias práctica -->
+        <div class="topic-card" style="margin-top: 2rem">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión práctica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-aguilar1.png"
+                alt="Evidencia práctica 1 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-aguilar2.png"
+                alt="Evidencia práctica 2 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-aguilar3.png"
+                alt="Evidencia práctica 3 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 3</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-aguilar4.png"
+                alt="Evidencia práctica 4 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 4</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana4/semana4-aguilar5.png"
+                alt="Evidencia práctica 5 - Semana 4"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 5</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REFLEXIÓN METACOGNITIVA -->
+      <section class="content-section reflection-section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Reflexión Metacognitiva</h2>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <div class="reflection-icon">💡</div>
+            <h3>¿Qué aprendí?</h3>
+            <p>
+              Aprendí los fundamentos de JavaScript (variables, tipos, control
+              de flujo y funciones), la idea de TypeScript como JavaScript con
+              tipos, y cómo manipular el DOM y dibujar en un Canvas para crear
+              una animación.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🎯</div>
+            <h3>¿Cómo lo aprendí?</h3>
+            <p>
+              Con la exposición teórica del docente y practicando en el
+              laboratorio: escribiendo el código, probándolo en el navegador y
+              corrigiendo los errores que iban apareciendo.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧭</div>
+            <h3>¿Para qué me sirve?</h3>
+            <p>
+              Para dar interactividad a las páginas web. Sin JavaScript una
+              página es solo contenido estático; con él puedo reaccionar a lo
+              que hace el usuario y actualizar la interfaz.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧩</div>
+            <h3>¿Qué dificultades tuve?</h3>
+            <p>
+              Entender conceptos como los closures y el orden en que se ejecuta
+              el código al animar fueron los puntos más retadores.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🛠️</div>
+            <h3>¿Cómo las superé?</h3>
+            <p>
+              Repitiendo los ejemplos, revisando la consola del navegador y
+              consultando la documentación de JavaScript.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🚀</div>
+            <h3>¿Cómo lo aplicaré?</h3>
+            <p>
+              En mis proyectos fullstack, para el comportamiento del frontend, y
+              como base para aprender un framework como React en las próximas
+              semanas.
+            </p>
+          </div>
+        </div>
+
+        <div class="key-takeaways">
+          <h4>🔑 Conceptos Clave</h4>
+          <div class="takeaways-list">
+            <span class="takeaway-tag">JavaScript</span>
+            <span class="takeaway-tag">TypeScript</span>
+            <span class="takeaway-tag">Funciones Flecha</span>
+            <span class="takeaway-tag">Closures</span>
+            <span class="takeaway-tag">DOM</span>
+            <span class="takeaway-tag">Canvas</span>
+            <span class="takeaway-tag">Animaciones</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 04 - JavaScript, TypeScript, DOM y Canvas</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

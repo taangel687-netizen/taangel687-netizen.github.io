@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Semana 06 - Eventos, Renderizado y Consumo de APIs | Angel Tocas
+    </title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Galería de evidencias */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .evidence-card {
+        background: var(--bg-tertiary);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0;
+        transition: all var(--transition-normal);
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-glow);
+      }
+      .evidence-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .evidence-card figcaption {
+        padding: 0.9rem 1.1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .docente-tag {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.9rem;
+        background: rgba(0, 191, 165, 0.1);
+        border: 1px solid rgba(0, 191, 165, 0.3);
+        border-radius: 50px;
+        color: var(--accent-teal);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">⚛️</span>
+          <span>React + APIs</span>
+        </div>
+        <h1 class="week-title">
+          Semana 06
+          <span class="gradient-text"
+            >Eventos, Renderizado y Consumo de APIs</span
+          >
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              />
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Semana 06
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+      <!-- 1. TEORÍA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Sesión Teórica</h2>
+        </div>
+        <span class="docente-tag">👨‍🏫 Dr. Jaime Suasnabar Terrel</span>
+
+        <div class="topic-card">
+          <div class="topic-icon">🖱️</div>
+          <h3>Eventos en React</h3>
+          <p class="topic-intro">
+            Los <strong>eventos</strong> permiten que la interfaz responda a las
+            acciones del usuario: clics, escritura en un campo, envío de un
+            formulario. En React se asignan como atributos del elemento con
+            nombres en <em>camelCase</em>.
+          </p>
+          <div class="code-snippet">
+            <code
+              >function Boton() {<br />
+              &nbsp;&nbsp;const saludar = () =&gt; alert("Hola");<br /><br />
+              &nbsp;&nbsp;return &lt;button
+              onClick={saludar}&gt;Saludar&lt;/button&gt;;<br />
+              }</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🔀</div>
+          <h3>Renderizado condicional e iterativo</h3>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">❓</span>
+                <h4>Condicional</h4>
+              </div>
+              <p>
+                Mostrar u ocultar elementos según una condición, con
+                <code>&amp;&amp;</code> o el operador ternario <code>? :</code>.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🔁</span>
+                <h4>Iterativo</h4>
+              </div>
+              <p>
+                Generar una lista de elementos a partir de un arreglo con
+                <code>map()</code>. Cada elemento lleva una
+                <code>key</code> única.
+              </p>
+            </div>
+          </div>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >{logueado ? &lt;Panel /&gt; : &lt;Login /&gt;}<br /><br />
+              &lt;ul&gt;<br />
+              &nbsp;&nbsp;{usuarios.map((u) =&gt; (<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;li
+              key={u.id}&gt;{u.name}&lt;/li&gt;<br />
+              &nbsp;&nbsp;))}<br />
+              &lt;/ul&gt;</code
+            >
+          </div>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">📝</div>
+          <h3>Formularios y Routing</h3>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">⌨️</span>
+              <div class="concept-content">
+                <strong>Formularios</strong>
+                <p>
+                  Se capturan los datos de los campos con eventos como
+                  <code>onChange</code> y <code>onSubmit</code>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🧭</span>
+              <div class="concept-content">
+                <strong>Routing</strong>
+                <p>
+                  Permite navegar entre vistas de una aplicación de una sola
+                  página sin recargar el navegador.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🌐</div>
+          <h3>Consumo de APIs</h3>
+          <p class="topic-intro">
+            Una <strong>API</strong> entrega datos desde un servidor. Como la
+            respuesta no es inmediata, se trabaja con operaciones asíncronas.
+          </p>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🤝</span>
+                <h4>Promesas</h4>
+              </div>
+              <p>
+                Objetos que representan un resultado futuro. Se encadenan con
+                <code>.then()</code> y <code>.catch()</code>.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">⏳</span>
+                <h4>Async / Await</h4>
+              </div>
+              <p>
+                Sintaxis que permite escribir código asíncrono con apariencia
+                secuencial.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">📡</span>
+                <h4>Axios</h4>
+              </div>
+              <p>
+                Librería para hacer peticiones HTTP de forma más sencilla que
+                <code>fetch</code>.
+              </p>
+            </div>
+          </div>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >import axios from "axios";<br /><br />
+              async function cargarUsuarios() {<br />
+              &nbsp;&nbsp;try {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;const res = await
+              axios.get("https://jsonplaceholder.typicode.com/users");<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;setUsuarios(res.data);<br />
+              &nbsp;&nbsp;} catch (error) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;console.error(error);<br />
+              &nbsp;&nbsp;}<br />
+              }</code
+            >
+          </div>
+        </div>
+
+        <!-- Evidencias teoría -->
+        <div class="topic-card">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión teórica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-suasnabar1.png"
+                alt="Evidencia teórica 1 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-suasnabar2.png"
+                alt="Evidencia teórica 2 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Teoría — captura 2</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PRÁCTICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Sesión Práctica</h2>
+        </div>
+        <span class="docente-tag">🧑‍💻 Mg. Miguel Aguilar Coronación</span>
+
+        <p class="section-intro">
+          La práctica fue el
+          <strong
+            >Laboratorio 06A: eventos y renderizado condicional e iterativo con
+            datos de una API</strong
+          >.
+        </p>
+
+        <div class="lab-grid">
+          <div class="lab-card">
+            <div class="lab-icon">📡</div>
+            <h4>Datos de una API</h4>
+            <p>Obtención de datos con Axios usando async/await.</p>
+            <div class="tech-tags">
+              <span>Axios</span>
+              <span>async/await</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🔁</div>
+            <h4>Renderizado</h4>
+            <p>
+              Lista de los datos recibidos con <code>map()</code> y contenido
+              mostrado según condiciones.
+            </p>
+            <div class="tech-tags">
+              <span>map</span>
+              <span>condicional</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🖱️</div>
+            <h4>Eventos</h4>
+            <p>Interacción del usuario con la aplicación mediante eventos.</p>
+            <div class="tech-tags">
+              <span>onClick</span>
+              <span>onChange</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evidencias práctica -->
+        <div class="topic-card" style="margin-top: 2rem">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión práctica</h3>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-aguilar1.png"
+                alt="Evidencia práctica 1 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-aguilar2.png"
+                alt="Evidencia práctica 2 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-aguilar3.png"
+                alt="Evidencia práctica 3 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 3</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-aguilar4.png"
+                alt="Evidencia práctica 4 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 4</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-aguilar5.png"
+                alt="Evidencia práctica 5 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 5</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana6/semana6-aguilar6.png"
+                alt="Evidencia práctica 6 - Semana 6"
+                loading="lazy"
+              />
+              <figcaption>Práctica — captura 6</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REFLEXIÓN METACOGNITIVA -->
+      <section class="content-section reflection-section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Reflexión Metacognitiva</h2>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <div class="reflection-icon">💡</div>
+            <h3>¿Qué aprendí?</h3>
+            <p>
+              Aprendí a manejar eventos en React, a mostrar contenido según
+              condiciones y a recorrer listas con <code>map()</code>. También a
+              consumir datos de una API con promesas, async/await y Axios.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🎯</div>
+            <h3>¿Cómo lo aprendí?</h3>
+            <p>
+              Con la teoría del docente y desarrollando el laboratorio: pedí
+              datos a una API, los mostré en pantalla y probé cada evento hasta
+              que la aplicación respondió como esperaba.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧭</div>
+            <h3>¿Para qué me sirve?</h3>
+            <p>
+              Para conectar el frontend con un servidor y mostrar datos reales.
+              Es justo lo que necesito en mis proyectos fullstack, donde la
+              interfaz consume la API del backend.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧩</div>
+            <h3>¿Qué dificultades tuve?</h3>
+            <p>
+              Entender el comportamiento asíncrono: los datos no llegan al
+              instante, y hay que manejar el caso de espera y de error.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🛠️</div>
+            <h3>¿Cómo las superé?</h3>
+            <p>
+              Usando <code>console.log</code> para ver la respuesta de la API,
+              separando la carga de datos del renderizado y probando con
+              <code>try/catch</code>.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🚀</div>
+            <h3>¿Cómo lo aplicaré?</h3>
+            <p>
+              En mis proyectos con backend propio y como base para los hooks de
+              la semana 7, como <code>useState</code> y <code>useEffect</code>,
+              que son los que manejan el estado y la carga de datos.
+            </p>
+          </div>
+        </div>
+
+        <div class="key-takeaways">
+          <h4>🔑 Conceptos Clave</h4>
+          <div class="takeaways-list">
+            <span class="takeaway-tag">Eventos</span>
+            <span class="takeaway-tag">Renderizado Condicional</span>
+            <span class="takeaway-tag">map() y key</span>
+            <span class="takeaway-tag">Formularios</span>
+            <span class="takeaway-tag">Routing</span>
+            <span class="takeaway-tag">Promesas</span>
+            <span class="takeaway-tag">Async / Await</span>
+            <span class="takeaway-tag">Axios</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 06 - Eventos, Renderizado y Consumo de APIs</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

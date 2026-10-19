@@ -12,6 +12,89 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Semana 08 destacada (cierre de unidad) - color dorado */
+      .week-card.week-card-highlight {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 183, 3, 0.16) 0%,
+            rgba(255, 107, 53, 0.2) 100%
+          ),
+          var(--bg-secondary);
+        border: 2px solid #ffb703;
+        box-shadow:
+          0 0 0 1px rgba(255, 183, 3, 0.25),
+          0 0 24px rgba(255, 183, 3, 0.3);
+        animation: highlightGlow 2.8s ease-in-out infinite;
+      }
+      .week-card.week-card-highlight::before {
+        transform: scaleX(1);
+        height: 5px;
+        background: linear-gradient(90deg, #ffb703, #ff8c42, #ffd166, #ffb703);
+        background-size: 200% 100%;
+        animation: highlightBar 3s linear infinite;
+      }
+      .week-card.week-card-highlight .week-number {
+        color: rgba(255, 183, 3, 0.42);
+      }
+      .week-card.week-card-highlight h3 {
+        color: #ffc933;
+      }
+      .week-card.week-card-highlight p {
+        color: var(--text-secondary);
+      }
+      .week-card.week-card-highlight .week-arrow {
+        color: #ffc933;
+      }
+      .week-card.week-card-highlight:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: #ffd166;
+        box-shadow:
+          0 0 0 1px rgba(255, 209, 102, 0.5),
+          0 0 48px rgba(255, 183, 3, 0.55);
+      }
+      .highlight-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #ffd166, #ff8c42);
+        color: #2a1600;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      @keyframes highlightGlow {
+        0%,
+        100% {
+          box-shadow:
+            0 0 0 1px rgba(255, 183, 3, 0.25),
+            0 0 20px rgba(255, 183, 3, 0.25);
+        }
+        50% {
+          box-shadow:
+            0 0 0 1px rgba(255, 183, 3, 0.5),
+            0 0 42px rgba(255, 183, 3, 0.55);
+        }
+      }
+      @keyframes highlightBar {
+        0% {
+          background-position: 0% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .week-card.week-card-highlight,
+        .week-card.week-card-highlight::before {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- NAVEGACIÓN FLOTANTE -->
@@ -370,10 +453,17 @@
           </a>
 
           <!-- Semana 08 -->
-          <a href="./semana-08/index.html" class="week-card">
+          <a
+            href="./semana-08/index.html"
+            class="week-card week-card-highlight"
+          >
+            <span class="highlight-badge">⭐ Cierre de unidad</span>
             <div class="week-number">08</div>
-            <h3>Por completar</h3>
-            <p>Contenido próximamente</p>
+            <h3>Reflexión de la Primera Unidad</h3>
+            <p>
+              Cierre de unidad: consolidado, retroalimentación y balance del
+              aprendizaje
+            </p>
             <span class="week-arrow">→</span>
           </a>
 

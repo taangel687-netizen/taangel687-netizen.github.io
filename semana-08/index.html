@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semana 08 - Reflexión de la Primera Unidad | Angel Tocas</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Galería de evidencias */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .evidence-card {
+        background: var(--bg-tertiary);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0;
+        transition: all var(--transition-normal);
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-glow);
+      }
+      .evidence-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .evidence-card figcaption {
+        padding: 0.9rem 1.1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .docente-tag {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.9rem;
+        background: rgba(0, 191, 165, 0.1);
+        border: 1px solid rgba(0, 191, 165, 0.3);
+        border-radius: 50px;
+        color: var(--accent-teal);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .video-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        background: rgba(0, 0, 0, 0.4);
+        margin-top: 1.5rem;
+      }
+      .video-wrap iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+      .link-btn {
+        display: inline-block;
+        padding: 0.7rem 1.4rem;
+        border-radius: 50px;
+        background: var(--gradient-main);
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all var(--transition-normal);
+      }
+      .link-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow);
+      }
+      .link-btn.ghost {
+        background: transparent;
+        border: 2px solid rgba(0, 212, 255, 0.4);
+        color: var(--accent-primary);
+      }
+      .subgroup-title {
+        font-size: 1.15rem;
+        color: var(--text-primary);
+        margin: 2rem 0 0.25rem;
+      }
+    </style>
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">🏁</span>
+          <span>Cierre de Unidad I</span>
+        </div>
+        <h1 class="week-title">
+          Semana 08
+          <span class="gradient-text">Reflexión de la Primera Unidad</span>
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              />
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Semana 08
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+      <!-- 1. RECORRIDO DE LA UNIDAD -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Recorrido de la Primera Unidad</h2>
+        </div>
+
+        <p class="section-intro">
+          La primera unidad del curso
+          <strong>Desarrollo de Aplicaciones Web</strong>
+          recorrió, semana a semana, el camino que sigue una aplicación web:
+          desde entender cómo funciona la web hasta construir una aplicación
+          completa con React. Cada semana se apoyó en la anterior.
+        </p>
+
+        <div class="lab-grid">
+          <a
+            href="../semana-01/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">🌐</div>
+            <h4>Semana 01 — Fundamentos Web y entorno</h4>
+            <p>
+              Cómo funciona la web (DNS, HTTP), frontend vs backend y
+              configuración de VS Code, Live Server y Git/GitHub.
+            </p>
+          </a>
+          <a
+            href="../semana-02/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">📄</div>
+            <h4>Semana 02 — HTML5, XML y CSS3</h4>
+            <p>
+              HTML semántico, XML, DOM, Flexbox, Grid, position y diseño
+              responsivo con media queries.
+            </p>
+          </a>
+          <a
+            href="../semana-03/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">🎨</div>
+            <h4>Semana 03 — Bootstrap y Tailwind CSS</h4>
+            <p>
+              Frameworks CSS: sistema de rejilla y componentes de Bootstrap, y
+              clases utilitarias de Tailwind.
+            </p>
+          </a>
+          <a
+            href="../semana-04/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">⚡</div>
+            <h4>Semana 04 — JavaScript, TypeScript, DOM y Canvas</h4>
+            <p>
+              Variables, funciones, closures, manipulación del DOM y animaciones
+              con Canvas.
+            </p>
+          </a>
+          <a
+            href="../semana-05/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">⚛️</div>
+            <h4>Semana 05 — React: componentes, props y estilos</h4>
+            <p>
+              Client Side Rendering, Vite, JSX, props, children y formas de
+              aplicar estilos.
+            </p>
+          </a>
+          <a
+            href="../semana-06/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">📡</div>
+            <h4>Semana 06 — Eventos, renderizado y APIs</h4>
+            <p>
+              Eventos, renderizado condicional e iterativo, promesas,
+              async/await y Axios.
+            </p>
+          </a>
+          <a
+            href="../semana-07/index.html"
+            class="lab-card"
+            style="display: block"
+          >
+            <div class="lab-icon">🪝</div>
+            <h4>Semana 07 — Hooks y Evaluación de Logro 01</h4>
+            <p>
+              useState, useEffect y demás hooks, hooks personalizados y el
+              parcial del sistema de biblioteca.
+            </p>
+          </a>
+        </div>
+
+        <div class="topic-card" style="margin-top: 2rem">
+          <div class="topic-icon">🧭</div>
+          <h3>La línea de aprendizaje</h3>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🧱</span>
+                <h4>Estructura y diseño</h4>
+              </div>
+              <p>
+                Semanas 1 a 3: cómo funciona la web, HTML, CSS y frameworks de
+                estilos para construir y dar forma a las páginas.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">⚙️</span>
+                <h4>Comportamiento</h4>
+              </div>
+              <p>
+                Semana 4: JavaScript y TypeScript para dar vida a la página con
+                funciones, DOM y animaciones.
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">⚛️</span>
+                <h4>Aplicaciones con React</h4>
+              </div>
+              <p>
+                Semanas 5 a 7: componentes, eventos, consumo de APIs y hooks,
+                hasta integrar todo en el parcial.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CONSOLIDADO -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Consolidado y Retroalimentación</h2>
+        </div>
+        <span class="docente-tag"
+          >📋 Primer consolidado de evaluación continua</span
+        >
+
+        <p class="section-intro">
+          La semana 8 cierra la unidad con la
+          <strong>revisión de la Evaluación de Logro 01</strong>, la
+          <strong>retroalimentación</strong> y el
+          <strong>primer consolidado de evaluación continua</strong>, junto con
+          un reforzamiento de los temas vistos.
+        </p>
+
+        <div class="lab-grid">
+          <div class="lab-card">
+            <div class="lab-icon">🔎</div>
+            <h4>Revisión de la evaluación</h4>
+            <p>
+              Repaso del parcial de la semana 7 (sistema de biblioteca con
+              React, Vite y TypeScript) y de sus aciertos y errores.
+            </p>
+          </div>
+          <div class="lab-card">
+            <div class="lab-icon">💬</div>
+            <h4>Retroalimentación</h4>
+            <p>
+              Comentarios del docente para identificar qué reforzar de cara a la
+              siguiente unidad.
+            </p>
+          </div>
+          <div class="lab-card">
+            <div class="lab-icon">📈</div>
+            <h4>Reforzamiento</h4>
+            <p>
+              Repaso de los temas de la unidad antes de pasar a la segunda parte
+              del curso.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REFLEXIÓN DE LA UNIDAD -->
+      <section class="content-section reflection-section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Reflexión de la Primera Unidad</h2>
+        </div>
+
+        <p class="section-intro">
+          Mirando las siete semanas en conjunto, esto es lo que me llevo de la
+          unidad.
+        </p>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <div class="reflection-icon">💡</div>
+            <h3>¿Qué aprendí en la unidad?</h3>
+            <p>
+              Aprendí a construir una aplicación web de principio a fin:
+              entender cómo viaja la información entre cliente y servidor,
+              estructurar con HTML5 y estilizar con CSS3, Bootstrap y Tailwind,
+              programar el comportamiento con JavaScript y TypeScript, y
+              organizar la interfaz en componentes de React con eventos, consumo
+              de APIs y hooks.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🎯</div>
+            <h3>¿Cómo lo aprendí?</h3>
+            <p>
+              Combinando la teoría con la práctica cada semana: las exposiciones
+              del Dr. Suasnabar y los laboratorios del Mg. Aguilar, donde
+              escribía el código y lo probaba en el navegador. Documentar cada
+              semana en este portafolio también me ayudó a repasar y ordenar lo
+              aprendido, y el parcial en equipo me exigió unirlo todo.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧭</div>
+            <h3>¿Para qué me sirve?</h3>
+            <p>
+              Para desarrollar el frontend de mis proyectos fullstack y entender
+              cómo se conecta con el backend. Es la base para crear aplicaciones
+              reales, como los sistemas que desarrollo en la universidad y en
+              mis proyectos personales.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧩</div>
+            <h3>¿Qué dificultades tuve?</h3>
+            <p>
+              El salto de JavaScript a React, sobre todo entender el flujo de
+              datos con props, el comportamiento asíncrono al consumir APIs y
+              las dependencias de <code>useEffect</code>. También organizar el
+              trabajo en equipo y el tiempo en el parcial.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🛠️</div>
+            <h3>¿Cómo las superé?</h3>
+            <p>
+              Practicando con ejemplos pequeños, usando la consola del navegador
+              para ver qué ocurría, revisando la documentación y dividiendo el
+              trabajo por módulos con mi equipo para integrarlo paso a paso.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🚀</div>
+            <h3>¿Cómo lo aplicaré?</h3>
+            <p>
+              Usaré lo aprendido en mis proyectos con React y en lo que viene
+              del curso: hooks personalizados, manejo de estado y conexión con
+              un backend propio. Mantendré este portafolio como registro de mi
+              avance.
+            </p>
+          </div>
+        </div>
+
+        <div class="topic-card" style="margin-top: 2rem">
+          <div class="topic-icon">🔭</div>
+          <h3>Lo que sigue</h3>
+          <p class="topic-intro">
+            Con la base del frontend lista, la siguiente unidad lleva estos
+            conocimientos a aplicaciones más completas. Mi meta es llegar con
+            los temas de esta unidad bien afianzados, apoyándome en la
+            retroalimentación recibida.
+          </p>
+        </div>
+
+        <div class="key-takeaways">
+          <h4>🔑 Conceptos Clave de la Unidad</h4>
+          <div class="takeaways-list">
+            <span class="takeaway-tag">HTTP y DNS</span>
+            <span class="takeaway-tag">HTML5 Semántico</span>
+            <span class="takeaway-tag">Flexbox y Grid</span>
+            <span class="takeaway-tag">Bootstrap</span>
+            <span class="takeaway-tag">Tailwind</span>
+            <span class="takeaway-tag">JavaScript y TypeScript</span>
+            <span class="takeaway-tag">DOM</span>
+            <span class="takeaway-tag">React</span>
+            <span class="takeaway-tag">Props</span>
+            <span class="takeaway-tag">APIs y Axios</span>
+            <span class="takeaway-tag">Hooks</span>
+            <span class="takeaway-tag">Trabajo en Equipo</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 08 - Reflexión de la Primera Unidad</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

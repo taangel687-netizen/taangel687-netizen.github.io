@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Semana 07 - Hooks de React y Evaluación de Logro 01 | Angel Tocas
+    </title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Galería de evidencias */
+      .evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .evidence-card {
+        background: var(--bg-tertiary);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 0;
+        transition: all var(--transition-normal);
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-primary);
+        box-shadow: var(--shadow-glow);
+      }
+      .evidence-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .evidence-card figcaption {
+        padding: 0.9rem 1.1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .docente-tag {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.9rem;
+        background: rgba(0, 191, 165, 0.1);
+        border: 1px solid rgba(0, 191, 165, 0.3);
+        border-radius: 50px;
+        color: var(--accent-teal);
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .video-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        background: rgba(0, 0, 0, 0.4);
+        margin-top: 1.5rem;
+      }
+      .video-wrap iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+      .link-btn {
+        display: inline-block;
+        padding: 0.7rem 1.4rem;
+        border-radius: 50px;
+        background: var(--gradient-main);
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all var(--transition-normal);
+      }
+      .link-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow);
+      }
+      .link-btn.ghost {
+        background: transparent;
+        border: 2px solid rgba(0, 212, 255, 0.4);
+        color: var(--accent-primary);
+      }
+      .subgroup-title {
+        font-size: 1.15rem;
+        color: var(--text-primary);
+        margin: 2rem 0 0.25rem;
+      }
+    </style>
+  </head>
+  <body class="week-body">
+    <!-- Navegación de Regreso -->
+    <nav class="week-nav">
+      <a href="../index.html" class="back-link">
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Volver al Portafolio
+      </a>
+    </nav>
+
+    <!-- Hero de la Semana -->
+    <header class="week-hero">
+      <div class="week-hero-content">
+        <div class="week-badge">
+          <span class="badge-icon">⚛️</span>
+          <span>React Hooks</span>
+        </div>
+        <h1 class="week-title">
+          Semana 07
+          <span class="gradient-text"
+            >Hooks de React y Evaluación de Logro 01</span
+          >
+        </h1>
+        <p class="week-meta">
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+              />
+            </svg>
+            Desarrollo de Aplicaciones Web — UNCP
+          </span>
+          <span class="meta-divider">•</span>
+          <span class="meta-item">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Semana 07
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <div class="week-container">
+      <!-- 1. TEORÍA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Sesión Teórica</h2>
+        </div>
+        <span class="docente-tag">👨‍🏫 Dr. Jaime Suasnabar Terrel</span>
+
+        <div class="topic-card">
+          <div class="topic-icon">🪝</div>
+          <h3>Uso de Hooks</h3>
+          <p class="topic-intro">
+            Los <strong>hooks</strong> son funciones de React que permiten a un
+            componente funcional usar <strong>estado</strong>, efectos y otras
+            características de React sin escribir clases. Se llaman siempre al
+            inicio del componente y empiezan con <code>use</code>.
+          </p>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">📦</span>
+              <div class="concept-content">
+                <strong>useState</strong>
+                <p>
+                  Guarda un valor que, al cambiar, vuelve a renderizar el
+                  componente. Devuelve el valor y la función para actualizarlo.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">⚡</span>
+              <div class="concept-content">
+                <strong>useEffect</strong>
+                <p>
+                  Ejecuta código después del renderizado: cargar datos,
+                  suscribirse a eventos o sincronizar con algo externo. Puede
+                  devolver una función de limpieza y recibe un arreglo de
+                  dependencias.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🌍</span>
+              <div class="concept-content">
+                <strong>useContext</strong>
+                <p>
+                  Lee un contexto compartido (por ejemplo el usuario o el tema)
+                  sin pasar props por cada nivel del árbol de componentes.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">📌</span>
+              <div class="concept-content">
+                <strong>useRef</strong>
+                <p>
+                  Guarda una referencia que persiste entre renderizados sin
+                  provocar uno nuevo; sirve para acceder a elementos del DOM.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🧮</span>
+              <div class="concept-content">
+                <strong>useReducer</strong>
+                <p>
+                  Maneja estado complejo con una función <em>reducer</em> que
+                  recibe el estado actual y una acción, y devuelve el nuevo
+                  estado.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🧠</span>
+              <div class="concept-content">
+                <strong>useCallback y useMemo</strong>
+                <p>
+                  <code>useCallback</code> memoriza una función y
+                  <code>useMemo</code> memoriza el resultado de un cálculo, para
+                  evitar repetirlos en cada renderizado si sus dependencias no
+                  cambian.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >function Contador() {<br />
+              &nbsp;&nbsp;const [n, setN] = useState(0);<br /><br />
+              &nbsp;&nbsp;useEffect(() =&gt; {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;document.title = `Clics: ${n}`;<br />
+              &nbsp;&nbsp;}, [n]); // se ejecuta cuando cambia n<br /><br />
+              &nbsp;&nbsp;return &lt;button onClick={() =&gt; setN(n +
+              1)}&gt;{n}&lt;/button&gt;;<br />
+              }</code
+            >
+          </div>
+          <p class="standards-note">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Reglas de los hooks: se llaman solo en el nivel superior del
+            componente (no dentro de condicionales ni bucles) y solo desde
+            componentes o desde otros hooks.
+          </p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon">🧩</div>
+          <h3>Hooks personalizados</h3>
+          <p class="topic-intro">
+            Un <strong>hook personalizado</strong> es una función propia cuyo
+            nombre empieza con <code>use</code> y que combina otros hooks para
+            <strong>reutilizar lógica</strong> entre componentes, por ejemplo
+            leer un dato guardado o escuchar un evento.
+          </p>
+          <div class="code-snippet">
+            <code
+              >function useContadorGuardado(clave) {<br />
+              &nbsp;&nbsp;const [valor, setValor] = useState(() =&gt;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;Number(localStorage.getItem(clave)) ||
+              0<br />
+              &nbsp;&nbsp;);<br />
+              &nbsp;&nbsp;useEffect(() =&gt; {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;localStorage.setItem(clave,
+              String(valor));<br />
+              &nbsp;&nbsp;}, [clave, valor]);<br />
+              &nbsp;&nbsp;return [valor, setValor];<br />
+              }</code
+            >
+          </div>
+        </div>
+
+        <!-- Práctica de Aguilar desarrollada en la sesión de teoría (video) -->
+        <div class="topic-card">
+          <div class="topic-icon">🎬</div>
+          <h3>Práctica desarrollada en la sesión (video)</h3>
+          <p class="topic-intro">
+            Durante la sesión teórica también se resolvió una de las prácticas
+            del ing. Aguilar. Dejo el video donde muestro lo que desarrollé.
+          </p>
+          <div class="video-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/18wgp1bXJIs9jMmVIb7VFOom4pyM_4ZdA/preview"
+              title="Video de la práctica - Semana 7"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="link-row">
+            <a
+              class="link-btn ghost"
+              href="https://drive.google.com/file/d/18wgp1bXJIs9jMmVIb7VFOom4pyM_4ZdA/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Abrir el video en Google Drive ↗</a
+            >
+          </div>
+        </div>
+
+        <!-- Evaluación de Logro 01 -->
+        <div class="topic-card">
+          <div class="topic-icon">📝</div>
+          <h3>Evaluación de Logro 01 — Parcial</h3>
+          <p class="topic-intro">
+            El parcial se desarrolló en
+            <strong>equipos de hasta 4 estudiantes</strong>, con
+            <strong>React, Vite y TypeScript</strong> y una duración de
+            <strong>85 minutos</strong>. El caso fue un
+            <strong>Sistema de Gestión de Biblioteca Universitaria</strong>, con
+            administradores y usuarios registrados (estudiantes o docentes), y
+            toda la información guardada en <strong>Local Storage</strong>, sin
+            base de datos externa.
+          </p>
+
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">📚</span>
+                <h4>Categorías y libros</h4>
+              </div>
+              <p>
+                Registro, edición y eliminación, con formularios validados.
+                <strong>6 pts</strong>
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">👤</span>
+                <h4>Usuarios</h4>
+              </div>
+              <p>
+                Registro validado, sin códigos universitarios duplicados.
+                <strong>4 pts</strong>
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🔖</span>
+                <h4>Préstamos</h4>
+              </div>
+              <p>
+                Búsqueda, solicitud y control de stock. <strong>4 pts</strong>
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🧾</span>
+                <h4>Comprobante digital</h4>
+              </div>
+              <p>
+                Código único, fechas y descarga en PDF. <strong>3 pts</strong>
+              </p>
+            </div>
+            <div class="comparison-item">
+              <div class="comparison-header">
+                <span class="comparison-emoji">🕘</span>
+                <h4>Historial</h4>
+              </div>
+              <p>
+                Préstamos activos y devueltos con React Router.
+                <strong>3 pts</strong>
+              </p>
+            </div>
+          </div>
+
+          <h4 class="subgroup-title">Mi parte: Usuarios y Sesión</h4>
+          <p class="topic-intro">
+            En el reparto del trabajo me encargué del módulo de
+            <strong>usuarios y sesión</strong>, que alimenta al resto de la
+            aplicación:
+          </p>
+          <ul class="concept-list">
+            <li>
+              <span class="concept-icon">✅</span>
+              <div class="concept-content">
+                <strong>Registro de usuarios</strong>
+                <p>
+                  Formulario con nombres, código universitario, correo y tipo
+                  (Estudiante o Docente). Normaliza los datos, valida el formato
+                  del correo y <strong>rechaza códigos duplicados</strong>.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🔐</span>
+              <div class="concept-content">
+                <strong>Sesión y roles</strong>
+                <p>
+                  Permite cambiar entre modo <strong>Administrador</strong> y
+                  <strong>Usuario</strong>, elegir qué usuario está activo y
+                  guardar la sesión en Local Storage.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="concept-icon">🪝</span>
+              <div class="concept-content">
+                <strong>Hook personalizado <code>useSession</code></strong>
+                <p>
+                  Combina <code>useState</code> y <code>useEffect</code> para
+                  que cualquier componente lea la sesión actual y se actualice
+                  cuando esta cambia, limpiando los listeners al desmontarse.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="code-snippet" style="margin-top: 1.5rem">
+            <code
+              >export function useSession() {<br />
+              &nbsp;&nbsp;const [session, updateSession] =
+              useState(getSession);<br />
+              &nbsp;&nbsp;useEffect(() =&gt; {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;const refresh = () =&gt;
+              updateSession(getSession());<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;window.addEventListener(SESSION_CHANGED,
+              refresh);<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;window.addEventListener('storage',
+              refresh);<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;return () =&gt; {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.removeEventListener(SESSION_CHANGED,
+              refresh);<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.removeEventListener('storage',
+              refresh);<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+              &nbsp;&nbsp;}, []);<br />
+              &nbsp;&nbsp;return session;<br />
+              }</code
+            >
+          </div>
+
+          <div class="tech-tags" style="margin-top: 1.5rem">
+            <span>React</span>
+            <span>Vite</span>
+            <span>TypeScript</span>
+            <span>React Router</span>
+            <span>Local Storage</span>
+            <span>jsPDF</span>
+          </div>
+          <p class="standards-note">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            El repositorio incluye 2 pruebas automatizadas
+            (<code>tests/library.test.mjs</code>) que cubren el registro, el
+            préstamo, el comprobante en PDF, la devolución y la persistencia en
+            Local Storage.
+          </p>
+          <div class="link-row">
+            <a
+              class="link-btn"
+              href="https://github.com/ZairRaaa/EVALUACION_PARCIAL_S7_DAW.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Ver repositorio en GitHub →</a
+            >
+          </div>
+
+          <h4 class="subgroup-title">Evidencias del parcial</h4>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-suasnabar1.png"
+                alt="Evidencia del parcial 1 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Parcial — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-suasnabar2.png"
+                alt="Evidencia del parcial 2 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Parcial — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-suasnabar3.png"
+                alt="Evidencia del parcial 3 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Parcial — captura 3</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-suasnabar4.png"
+                alt="Evidencia del parcial 4 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Parcial — captura 4</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PRÁCTICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Sesión Práctica</h2>
+        </div>
+        <span class="docente-tag">🧑‍💻 Mg. Miguel Aguilar Coronación</span>
+
+        <p class="section-intro">
+          En el <strong>Laboratorio 06: uso de hooks</strong> se aplicaron los
+          hooks de la teoría y se rindieron <strong>dos pruebas</strong> de
+          laboratorio.
+        </p>
+
+        <div class="lab-grid">
+          <div class="lab-card">
+            <div class="lab-icon">📦</div>
+            <h4>Estado y efectos</h4>
+            <p>
+              Manejo de estado con <code>useState</code> y ejecución de efectos
+              con <code>useEffect</code>.
+            </p>
+            <div class="tech-tags">
+              <span>useState</span>
+              <span>useEffect</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">🪝</div>
+            <h4>Hooks avanzados</h4>
+            <p>
+              Uso de hooks adicionales para compartir datos, referenciar
+              elementos y optimizar el renderizado.
+            </p>
+            <div class="tech-tags">
+              <span>useContext</span>
+              <span>useRef</span>
+              <span>useReducer</span>
+              <span>useMemo</span>
+            </div>
+          </div>
+
+          <div class="lab-card">
+            <div class="lab-icon">✅</div>
+            <h4>Dos pruebas de laboratorio</h4>
+            <p>
+              Dos ejercicios evaluados en la sesión, con sus capturas como
+              evidencia.
+            </p>
+          </div>
+        </div>
+
+        <div class="topic-card" style="margin-top: 2rem">
+          <div class="topic-icon">📸</div>
+          <h3>Evidencias de la sesión práctica</h3>
+
+          <h4 class="subgroup-title">Prueba 1</h4>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar1.png"
+                alt="Evidencia de la prueba 1 1 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 1 — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar2.png"
+                alt="Evidencia de la prueba 1 2 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 1 — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar3.png"
+                alt="Evidencia de la prueba 1 3 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 1 — captura 3</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar4.png"
+                alt="Evidencia de la prueba 1 4 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 1 — captura 4</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar5.png"
+                alt="Evidencia de la prueba 1 5 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 1 — captura 5</figcaption>
+            </figure>
+          </div>
+
+          <h4 class="subgroup-title">Prueba 2</h4>
+          <div class="evidence-grid">
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar1-practica2.png"
+                alt="Evidencia de la prueba 2 1 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 2 — captura 1</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar2-practica2.png"
+                alt="Evidencia de la prueba 2 2 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 2 — captura 2</figcaption>
+            </figure>
+            <figure class="evidence-card">
+              <img
+                src="../assets/semana7/semana7-aguilar3-practica2.png"
+                alt="Evidencia de la prueba 2 3 - Semana 7"
+                loading="lazy"
+              />
+              <figcaption>Prueba 2 — captura 3</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. REFLEXIÓN METACOGNITIVA -->
+      <section class="content-section reflection-section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Reflexión Metacognitiva</h2>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="reflection-card">
+            <div class="reflection-icon">💡</div>
+            <h3>¿Qué aprendí?</h3>
+            <p>
+              Aprendí qué es cada hook de React y cuándo usarlo, y cómo crear
+              mis propios hooks para reutilizar lógica. También viví cómo se
+              integra todo en una aplicación completa con React, TypeScript y
+              Local Storage.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🎯</div>
+            <h3>¿Cómo lo aprendí?</h3>
+            <p>
+              Con la teoría del docente, las dos pruebas del laboratorio y el
+              parcial en equipo, donde tuve que usar hooks en un problema real y
+              coordinarme con mis compañeros por módulos.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧭</div>
+            <h3>¿Para qué me sirve?</h3>
+            <p>
+              Para escribir componentes que manejan estado y datos de forma
+              ordenada, y para no repetir código: un hook como
+              <code>useSession</code> lo usan varios componentes a la vez.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🧩</div>
+            <h3>¿Qué dificultades tuve?</h3>
+            <p>
+              Manejar las dependencias de <code>useEffect</code> y limpiar los
+              listeners para evitar fugas, además del poco tiempo (85 minutos) y
+              la integración de los módulos del equipo.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🛠️</div>
+            <h3>¿Cómo las superé?</h3>
+            <p>
+              Separando la lógica en servicios y en un hook propio, dividiendo
+              el trabajo por módulos con mi equipo y revisando cada integración
+              antes de unirla.
+            </p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-icon">🚀</div>
+            <h3>¿Cómo lo aplicaré?</h3>
+            <p>
+              En mis proyectos fullstack con React, creando hooks propios para
+              la sesión y el consumo de datos, y como base para las siguientes
+              semanas del curso.
+            </p>
+          </div>
+        </div>
+
+        <div class="key-takeaways">
+          <h4>🔑 Conceptos Clave</h4>
+          <div class="takeaways-list">
+            <span class="takeaway-tag">useState</span>
+            <span class="takeaway-tag">useEffect</span>
+            <span class="takeaway-tag">useContext</span>
+            <span class="takeaway-tag">useRef</span>
+            <span class="takeaway-tag">useReducer</span>
+            <span class="takeaway-tag">useCallback / useMemo</span>
+            <span class="takeaway-tag">Hooks Personalizados</span>
+            <span class="takeaway-tag">Local Storage</span>
+            <span class="takeaway-tag">Trabajo en Equipo</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="week-footer">
+      <div class="week-footer-content">
+        <p>Semana 07 - Hooks de React y Evaluación de Logro 01</p>
+        <a href="../index.html" class="footer-link">← Regresar al Portafolio</a>
+      </div>
+    </footer>
+  </body>
+</html>
